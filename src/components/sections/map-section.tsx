@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useMemo, useState } from "react";
-import { Bike, Footprints, Landmark, Leaf, Train } from "lucide-react";
+import { Bike, ChevronDown, Footprints, Landmark, Leaf, Train } from "lucide-react";
 import { ClientOnly } from "@/components/client-only";
 import { SectionHeading } from "@/components/motion/section-heading";
 import { SectionReveal } from "@/components/motion/section-reveal";
@@ -20,7 +20,7 @@ import { cn } from "@/lib/utils";
 function MapFallback() {
   const { t } = useLocale();
   return (
-    <div className="flex min-h-[min(55vh,26rem)] items-center justify-center rounded-2xl bg-muted animate-pulse sm:h-[480px] sm:min-h-0">
+    <div className="flex min-h-[60vh] items-center justify-center rounded-2xl bg-muted animate-pulse sm:h-[480px] sm:min-h-0">
       <p className="text-muted-foreground">{t.map.loading}</p>
     </div>
   );
@@ -88,6 +88,7 @@ export function MapSection() {
   const { t } = useLocale();
   const [filter, setFilter] = useState<MapFilter>("all");
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [showPlaces, setShowPlaces] = useState(false);
 
   const filters: { id: MapFilter; label: string }[] = [
     { id: "all", label: t.map.filters.all },
@@ -115,6 +116,22 @@ export function MapSection() {
     setActiveId(null);
   };
 
+  const placeList = (
+    <aside className="flex flex-col gap-2 lg:max-h-[480px] lg:overflow-y-auto lg:pr-1">
+      <p className="mb-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+        {t.map.places} ({visibleMarkers.length})
+      </p>
+      {visibleMarkers.map((marker) => (
+        <MarkerListItem
+          key={marker.id}
+          marker={marker}
+          isActive={activeId === marker.id}
+          onSelect={() => setActiveId(marker.id)}
+        />
+      ))}
+    </aside>
+  );
+
   return (
     <section
       id="map"
@@ -126,11 +143,13 @@ export function MapSection() {
           eyebrow={t.map.eyebrow}
           title={t.map.title}
           description={t.map.description}
+          mobileDescription={t.map.shortDescription}
+          compactMobile
         />
 
         <SectionReveal>
-          <div className="mb-4 space-y-3 sm:mb-5 sm:space-y-0">
-            <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 scrollbar-none sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
+          <div className="mb-4 lg:mb-5">
+            <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 scrollbar-none lg:mx-0 lg:flex-wrap lg:overflow-visible lg:px-0">
               {filters.map((f) => (
                 <Button
                   key={f.id}
@@ -147,7 +166,7 @@ export function MapSection() {
               ))}
             </div>
 
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-muted-foreground">
+            <div className="mt-3 hidden flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-muted-foreground lg:flex">
               {legend.map((item) => (
                 <span key={item.category} className="flex items-center gap-1.5">
                   <span
@@ -162,11 +181,11 @@ export function MapSection() {
           </div>
 
           <div className="flex flex-col gap-4 lg:grid lg:grid-cols-[minmax(0,280px)_1fr] lg:gap-5">
-            <div className="relative order-1 overflow-hidden rounded-2xl border border-border/60 shadow-lg lg:order-2">
-              <div className="pointer-events-none absolute bottom-3 left-3 right-3 z-[400] rounded-full bg-background/90 px-3 py-2 text-center text-xs text-muted-foreground shadow-sm backdrop-blur-sm sm:hidden">
+            <div className="relative overflow-hidden rounded-2xl border border-border/60 shadow-lg">
+              <div className="pointer-events-none absolute bottom-3 left-3 right-3 z-[400] rounded-full bg-background/90 px-3 py-2 text-center text-xs text-muted-foreground shadow-sm backdrop-blur-sm lg:hidden">
                 {t.map.hintMobile}
               </div>
-              <div className="pointer-events-none absolute bottom-3 left-3 z-[400] hidden rounded-full bg-background/90 px-3 py-1.5 text-xs text-muted-foreground shadow-sm backdrop-blur-sm sm:block">
+              <div className="pointer-events-none absolute bottom-3 left-3 z-[400] hidden rounded-full bg-background/90 px-3 py-1.5 text-xs text-muted-foreground shadow-sm backdrop-blur-sm lg:block">
                 <Bike className="mr-1 inline h-3.5 w-3.5" aria-hidden="true" />
                 {t.map.hint}
               </div>
@@ -179,19 +198,30 @@ export function MapSection() {
               </ClientOnly>
             </div>
 
-            <aside className="order-2 flex max-h-56 flex-col gap-2 overflow-y-auto scrollbar-none sm:max-h-72 lg:order-1 lg:max-h-[480px] lg:pr-1">
-              <p className="sticky top-0 z-10 mb-1 bg-background py-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                {t.map.places} ({visibleMarkers.length})
-              </p>
-              {visibleMarkers.map((marker) => (
-                <MarkerListItem
-                  key={marker.id}
-                  marker={marker}
-                  isActive={activeId === marker.id}
-                  onSelect={() => setActiveId(marker.id)}
-                />
-              ))}
-            </aside>
+            <div className="hidden lg:block">{placeList}</div>
+          </div>
+
+          <div className="mt-4 lg:hidden">
+            {showPlaces && (
+              <div className="mb-4 max-h-64 overflow-y-auto scrollbar-none">
+                {placeList}
+              </div>
+            )}
+            <button
+              type="button"
+              onClick={() => setShowPlaces((prev) => !prev)}
+              aria-expanded={showPlaces}
+              className="mx-auto flex min-h-11 w-full items-center justify-center gap-1.5 rounded-full border border-border/60 px-5 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground active:bg-muted/50"
+            >
+              {showPlaces ? t.map.hidePlaces : t.map.showPlaces}
+              <ChevronDown
+                className={cn(
+                  "h-4 w-4 transition-transform duration-300",
+                  showPlaces && "rotate-180"
+                )}
+                aria-hidden="true"
+              />
+            </button>
           </div>
         </SectionReveal>
       </div>

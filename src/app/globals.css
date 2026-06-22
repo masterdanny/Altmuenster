@@ -144,7 +144,7 @@
   }
 
   .section-padding {
-    @apply px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-28;
+    @apply px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28;
   }
 
   .safe-top {
@@ -310,9 +310,9 @@
   opacity: 0.8;
 }
 
-@media (max-width: 639px) {
+@media (max-width: 1023px) {
   .alt-map {
-    min-height: min(55vh, 26rem);
+    min-height: 60vh;
   }
 
   .leaflet-popup-content-wrapper {

@@ -14,6 +14,8 @@ const de = {
     officialSiteShort: "Offizielle Seite →",
     openingHours: "Öffnungszeiten",
     readMore: "Mehr erfahren",
+    showMore: "Mehr erfahren",
+    showLess: "Weniger anzeigen",
     backToTop: "Nach oben",
     country: "Österreich",
     regionLine: "Naturpark Attersee-Traunsee · Salzkammergut · Oberösterreich",
@@ -35,7 +37,7 @@ const de = {
     history: "Geschichte erleben",
     scrollDown: "Zum Willkommensbereich scrollen",
     imageAlt:
-      "Luftaufnahme des Traunsees mit Alpengipfeln im Salzkammergut, Österreich",
+      "Blick über den Traunsee auf Altmünster und die umliegenden Alpen im Salzkammergut",
     facts: [
       { value: "191 m", label: "Tiefster See Österreichs" },
       { value: "45 Min.", label: "Mit dem Zug ab Linz" },
@@ -47,6 +49,9 @@ const de = {
     title: "Willkommen in Altmünster",
     description:
       "Am westlichen Ufer des Traunsees, im Herzen des Naturparks Attersee-Traunsee, bietet Altmünster einen sanfteren Rhythmus — wo alpine Gipfel auf kristallklares Wasser treffen und jeder Weg zu etwas Besonderem führt. Eine ruhige Alternative zum lebhaften Gmunden, und doch nah genug, um das ganze Salzkammergut zu erkunden.",
+    shortDescription:
+      "Ein ruhiges Seejuwel am westlichen Ufer des Traunsees — im Herzen des Salzkammerguts.",
+    showStats: "Zahlen & Fakten",
     stats: [
       { label: "Einwohner", sublabel: "Lebendige Gemeinschaft" },
       { label: "Naturpark", sublabel: "Naturpark Attersee-Traunsee" },
@@ -59,7 +64,10 @@ const de = {
     title: "Geschichte & Wissenswertes",
     description:
       "Der Name Altmünster erinnert an das klösterliche Erbe — heute eine Seeufer-Marktgemeinde in einer der schönsten Landschaften Österreichs.",
+    shortDescription:
+      "Vom alten Kloster zur Marktgemeinde am Traunsee — Salzkammergut-Geschichte seit Jahrhunderten.",
     goodToKnow: "Gut zu wissen",
+    showAll: "Gesamte Geschichte",
     highlights: [
       {
         era: "Ursprung",
@@ -112,6 +120,9 @@ const de = {
     title: "Karte erkunden",
     description:
       "Orte in der Liste oder auf der Karte durchstöbern — mit der Maus heranzoomen, Marker anklicken für Fotos und Wegbeschreibung.",
+    shortDescription: "Entdecken Sie die schönsten Orte rund um den See.",
+    showPlaces: "Orte anzeigen",
+    hidePlaces: "Orte ausblenden",
     filters: {
       all: "Alle",
       nature: "Natur",
@@ -220,6 +231,9 @@ const de = {
     title: "Aktuelles",
     description:
       "Kommende Veranstaltungen und Neuigkeiten der Gemeinde — vollständige Listen immer auf altmuenster.at.",
+    shortDescription: "Veranstaltungen und Neuigkeiten aus der Gemeinde.",
+    showAllEvents: "Alle Veranstaltungen",
+    showAllNews: "Alle News",
     eventsTitle: "Kommende Veranstaltungen",
     newsTitle: "Gemeinde-News",
     fullCalendar: "Gesamter Veranstaltungskalender",
@@ -295,6 +309,7 @@ const de = {
   footer: {
     tagline:
       "Tourismusführer für Altmünster am Traunsee. Offizielle Informationen der Marktgemeinde auf",
+    showContact: "Kontakt & Links",
     explore: "Entdecken",
     municipality: "Gemeinde",
     copyright:
@@ -321,6 +336,8 @@ const en = {
     officialSiteShort: "Official German site →",
     openingHours: "Opening hours",
     readMore: "Read more",
+    showMore: "Show more",
+    showLess: "Show less",
     backToTop: "Back to top",
     country: "Austria",
     regionLine: "Naturpark Attersee-Traunsee · Salzkammergut · Upper Austria",
@@ -342,7 +359,7 @@ const en = {
     history: "Discover the History",
     scrollDown: "Scroll to welcome section",
     imageAlt:
-      "Drone view of Lake Traunsee with alpine mountains in Salzkammergut, Austria",
+      "View over Lake Traunsee towards Altmünster and the surrounding Alps in Salzkammergut",
     facts: [
       { value: "191 m", label: "Austria's deepest lake" },
       { value: "45 min", label: "From Linz by train" },
@@ -354,6 +371,9 @@ const en = {
     title: "Welcome to Altmünster",
     description:
       "Nestled on the western shore of Lake Traunsee, within the protected landscapes of Naturpark Attersee-Traunsee, Altmünster offers a gentler rhythm of life — where alpine peaks meet crystal waters, and every path leads to wonder. A peaceful alternative to bustling Gmunden, yet close enough to explore the entire Salzkammergut.",
+    shortDescription:
+      "A serene lakeside gem on the western shore of Traunsee — in the heart of the Salzkammergut.",
+    showStats: "Numbers & facts",
     stats: [
       { label: "Residents", sublabel: "Warm community spirit" },
       { label: "Nature Park", sublabel: "Naturpark Attersee-Traunsee" },
@@ -366,7 +386,10 @@ const en = {
     title: "History & Good to Know",
     description:
       "Altmünster's name recalls its monastic past — today a lakeside market town in one of Austria's most beloved landscapes.",
+    shortDescription:
+      "From old monastery to lakeside market town — centuries of Salzkammergut heritage.",
     goodToKnow: "Good to know",
+    showAll: "Full history",
     highlights: [
       {
         era: "Origins",
@@ -419,6 +442,9 @@ const en = {
     title: "Explore the Map",
     description:
       "Browse places on the list or map — hover to zoom, click a marker for photos and directions.",
+    shortDescription: "Discover the best spots around the lake.",
+    showPlaces: "Show places",
+    hidePlaces: "Hide places",
     filters: { all: "All", nature: "Nature", culture: "Culture", practical: "Practical" },
     categories: { nature: "Nature", culture: "Culture", practical: "Practical" },
     legend: {
@@ -517,6 +543,9 @@ const en = {
     title: "What's On",
     description:
       "Upcoming events and news from the municipality — full listings always on altmuenster.at.",
+    shortDescription: "Events and news from the municipality.",
+    showAllEvents: "All events",
+    showAllNews: "All news",
     eventsTitle: "Upcoming events",
     newsTitle: "Municipality news",
     fullCalendar: "Full event calendar",
@@ -590,6 +619,7 @@ const en = {
   footer: {
     tagline:
       "Tourism guide for Altmünster am Traunsee. Official municipal information is published at",
+    showContact: "Contact & links",
     explore: "Explore",
     municipality: "Municipality",
     copyright:

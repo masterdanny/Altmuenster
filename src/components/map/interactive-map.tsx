@@ -259,7 +259,7 @@ export function InteractiveMap({
       touchZoom
       dragging
       className={cn(
-        "alt-map min-h-[min(55vh,26rem)] w-full sm:h-[480px] sm:min-h-0"
+        "alt-map min-h-[60vh] w-full lg:h-[480px] lg:min-h-0"
       )}
       aria-label={t.map.ariaLabel}
     >

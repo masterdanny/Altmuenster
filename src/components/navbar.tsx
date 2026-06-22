@@ -50,6 +50,8 @@ export function Navbar() {
     return activeSection === id;
   };
 
+  const onHero = activeSection === "hero" && !isScrolled;
+
   return (
     <>
       <motion.header
@@ -60,7 +62,9 @@ export function Navbar() {
           "fixed top-0 right-0 left-0 z-50 transition-all duration-500 safe-top",
           isScrolled
             ? "glass-nav shadow-sm"
-            : "bg-black/20 backdrop-blur-md lg:bg-transparent lg:backdrop-blur-none"
+            : onHero
+              ? "max-md:bg-transparent max-md:backdrop-blur-none md:bg-black/20 md:backdrop-blur-md lg:bg-transparent lg:backdrop-blur-none"
+              : "bg-black/20 backdrop-blur-md lg:bg-transparent lg:backdrop-blur-none"
         )}
       >
         <nav
@@ -69,7 +73,10 @@ export function Navbar() {
         >
           <Link
             href="#hero"
-            className="group flex items-center gap-2.5"
+            className={cn(
+              "group flex items-center gap-2.5",
+              onHero && "max-md:invisible max-md:w-0 max-md:overflow-hidden"
+            )}
             aria-label={t.common.homeAria}
           >
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary/20">
@@ -120,10 +127,19 @@ export function Navbar() {
             ))}
           </div>
 
-          <div className="flex shrink-0 items-center gap-1 sm:gap-2">
-            <LanguageToggle scrolled={isScrolled} className="hidden xs:flex" />
+          <div
+            className={cn(
+              "flex shrink-0 items-center gap-1 sm:gap-2",
+              onHero && "max-md:ml-auto"
+            )}
+          >
+            <LanguageToggle
+              scrolled={isScrolled}
+              className="hidden xs:flex max-md:hidden"
+            />
             <ThemeToggle
               className={cn(
+                onHero && "max-md:hidden",
                 !isScrolled && "text-white hover:text-white hover:bg-white/10"
               )}
             />

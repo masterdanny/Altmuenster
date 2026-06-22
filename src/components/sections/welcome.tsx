@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { ShowMore } from "@/components/show-more";
 import { SectionHeading } from "@/components/motion/section-heading";
 import { SectionReveal } from "@/components/motion/section-reveal";
 import { useLocale } from "@/context/locale-context";
@@ -48,6 +49,20 @@ function StatCard({
 export function Welcome() {
   const { t } = useLocale();
 
+  const statsGrid = (
+    <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+      {STATS.map((stat, i) => (
+        <StatCard
+          key={stat.label}
+          stat={stat}
+          label={t.welcome.stats[i].label}
+          sublabel={t.welcome.stats[i].sublabel}
+          index={i}
+        />
+      ))}
+    </div>
+  );
+
   return (
     <section
       id="welcome"
@@ -59,18 +74,20 @@ export function Welcome() {
           eyebrow={t.welcome.eyebrow}
           title={t.welcome.title}
           description={t.welcome.description}
+          mobileDescription={t.welcome.shortDescription}
+          compactMobile
         />
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {STATS.map((stat, i) => (
-            <StatCard
-              key={stat.label}
-              stat={stat}
-              label={t.welcome.stats[i].label}
-              sublabel={t.welcome.stats[i].sublabel}
-              index={i}
-            />
-          ))}
+        <div className="hidden sm:block">{statsGrid}</div>
+
+        <div className="sm:hidden">
+          <ShowMore
+            label={t.welcome.showStats}
+            labelLess={t.common.showLess}
+            contentClassName="mt-2"
+          >
+            {statsGrid}
+          </ShowMore>
         </div>
       </div>
     </section>
