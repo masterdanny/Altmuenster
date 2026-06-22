@@ -42,6 +42,12 @@ Then open **http://localhost:3456**.
 
 ## GitHub Pages
 
-Live site: **https://masterdanny.github.io/Altmuenster/** (ASCII repo name for GitHub; the site itself displays Altmünster)
+Live site: **https://masterdanny.github.io/Altmuenster/**
 
-Pushes to `main` deploy automatically via GitHub Actions. In the repo settings, set **Pages → Build and deployment → Source** to **GitHub Actions**.
+Deploy from your machine:
+
+```bash
+npm run deploy:pages
+```
+
+**Required GitHub setting (one-time):** open [Repository → Settings → Pages](https://github.com/masterdanny/Altmuenster/settings/pages) and set **Build and deployment → Source** to **Deploy from a branch**, then choose branch **`gh-pages`** and folder **`/ (root)`**. Do **not** use “GitHub Actions” unless a workflow is configured.

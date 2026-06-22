@@ -13,13 +13,14 @@ export function useAnimatedCounter(
   options: UseAnimatedCounterOptions = {}
 ) {
   const { duration = 1800, decimals = 0 } = options;
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(target);
   const hasAnimated = useRef(false);
 
   useEffect(() => {
     if (!inView || hasAnimated.current) return;
     hasAnimated.current = true;
 
+    setValue(0);
     const start = performance.now();
 
     const tick = (now: number) => {
