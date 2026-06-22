@@ -26,7 +26,7 @@ export function Experiences() {
         <SectionHeading
           eyebrow="Activities"
           title="Things to Do & Experiences"
-          description="Whether you seek adventure on the water, solace on forest trails, or cultural treasures — Altmünster has something for every traveller."
+          description="Whether you seek adventure on the water, solace on forest trails, or cultural treasures — Altmuenster has something for every traveller."
         />
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">

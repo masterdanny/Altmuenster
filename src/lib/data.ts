@@ -9,10 +9,10 @@ import {
 } from "lucide-react";
 
 export const OFFICIAL_CONTACT = {
-  name: "Marktgemeinde Altmünster",
+  name: "Marktgemeinde Altmuenster",
   address: "Marktstraße 21",
   postalCode: "4813",
-  locality: "Altmünster",
+  locality: "Altmuenster",
   country: "Austria",
   phone: "+43 7612 87611",
   email: "gemeinde@altmuenster.ooe.gv.at",
@@ -57,12 +57,12 @@ export const HISTORY_HIGHLIGHTS = [
   {
     era: "Origins",
     title: "The old monastery",
-    text: "Altmünster — literally the “old minster” — takes its name from a former monastery that shaped the settlement. Faith and village life grew together here on the western shore of Lake Traunsee, leaving a legacy still visible in churches and traditional architecture.",
+    text: "Altmuenster — literally the “old minster” — takes its name from a former monastery that shaped the settlement. Faith and village life grew together here on the western shore of Lake Traunsee, leaving a legacy still visible in churches and traditional architecture.",
   },
   {
     era: "Built heritage",
     title: "Churches, houses & craft",
-    text: "The parish church with its Romanesque tower anchors the historic centre. Nearby stand the Kalvarienberg church, the faithfully restored Eggerhaus farmhouse, and village churches in Neukirchen and Reindlmühl — each telling part of the Salzkammergut story.",
+    text: "The parish church with its Romanesque tower anchors the historic centre. Nearby stand the Kalvarienberg church, the faithfully restored Eggerhaus farmhouse, and village churches in Neukirchen and Reindlmuhl — each telling part of the Salzkammergut story.",
   },
   {
     era: "Landscape",
@@ -72,7 +72,7 @@ export const HISTORY_HIGHLIGHTS = [
   {
     era: "Today",
     title: "A market town of three villages",
-    text: "Modern Altmünster brings together Altmünster, Neukirchen, and Reindlmühl under one municipality. It remains a place to live and visit — quieter than bustling Gmunden across the lake, yet deeply connected to Upper Austrian culture.",
+    text: "Modern Altmuenster brings together Altmuenster, Neukirchen, and Reindlmuhl under one municipality. It remains a place to live and visit — quieter than bustling Gmunden across the lake, yet deeply connected to Upper Austrian culture.",
   },
 ] as const;
 
@@ -80,12 +80,12 @@ export const GOOD_TO_KNOW = [
   {
     label: "Three districts, one town",
     detail:
-      "The municipality covers Altmünster, Neukirchen, and Reindlmühl — each with its own character and churches.",
+      "The municipality covers Altmuenster, Neukirchen, and Reindlmuhl — each with its own character and churches.",
   },
   {
     label: "Getting here by train",
     detail:
-      "Altmünster/Wörth station has direct ÖBB links to Linz (~45 min) and Vienna (~2.5 h).",
+      "Altmuenster/Woerth station has direct ÖBB links to Linz (~45 min) and Vienna (~2.5 h).",
   },
   {
     label: "Where to stay & eat",
@@ -167,7 +167,7 @@ export const OFFICIAL_NEWS: OfficialNewsItem[] = [
     officialUrl: "https://www.altmuenster.at/Dorffest_Neukirchen_9",
     image:
       "https://www.altmuenster.at/system/web/GetImage.ashx?fileid=4240546&mode=T&width=600&height=400&cropping=CENTER",
-    imageAlt: "Aerial view of Neukirchen near Altmünster",
+    imageAlt: "Aerial view of Neukirchen near Altmuenster",
   },
   {
     id: "kids-padel",
@@ -177,7 +177,7 @@ export const OFFICIAL_NEWS: OfficialNewsItem[] = [
     officialUrl: "https://www.altmuenster.at/Kids-Padeln",
     image:
       "https://www.altmuenster.at/system/web/GetImage.ashx?fileid=4313669&mode=T&width=600&height=400&cropping=CENTER",
-    imageAlt: "Kids padel tennis in Altmünster",
+    imageAlt: "Kids padel tennis in Altmuenster",
   },
 ];
 
@@ -201,7 +201,7 @@ export const DINING: DiningSpot[] = [
     name: "Fischrestaurant Moser",
     cuisine: "Fish restaurant",
     description: "Fresh Traunsee fish and lakeside dining at Nachdemsee.",
-    address: "Nachdemsee 26, 4813 Altmünster",
+    address: "Nachdemsee 26, 4813 Altmuenster",
     email: "info@fischrestaurantmoser.at",
     website: "https://fischrestaurantmoser.at/",
     officialUrl: "https://www.altmuenster.at/Fischrestaurant_Moser",
@@ -214,7 +214,7 @@ export const DINING: DiningSpot[] = [
     name: "Die Stube im Maximilianhof",
     cuisine: "Gasthof / Restaurant",
     description: "Regional cuisine in the Maximilianhof — reservations recommended.",
-    address: "Maximilianstraße 1, 4813 Altmünster",
+    address: "Maximilianstraße 1, 4813 Altmuenster",
     phone: "+43 7612 87800",
     website: "https://maximilianstube.at/",
     officialUrl:
@@ -228,7 +228,7 @@ export const DINING: DiningSpot[] = [
     name: "Berggasthof Urzn",
     cuisine: "Mountain inn",
     description: "Alpine guesthouse on the Gmundnerberg with panoramic views over Traunsee.",
-    address: "Gmundnerberg 91, 4813 Altmünster",
+    address: "Gmundnerberg 91, 4813 Altmuenster",
     phone: "+43 7612 87214",
     website: "https://urzn.at/",
     officialUrl: "https://www.altmuenster.at/Berggasthof_Urzn",
@@ -241,7 +241,7 @@ export const DINING: DiningSpot[] = [
     name: "Gasthaus Sägemühle",
     cuisine: "Gasthof / Restaurant",
     description: "Traditional country inn in Neukirchen serving hearty Salzkammergut fare.",
-    address: "Neukirchen 41, 4814 Altmünster",
+    address: "Neukirchen 41, 4814 Altmuenster",
     phone: "+43 7618 8209",
     website: "https://landgasthaus-saegemuehle.eatbu.com/",
     officialUrl: "https://www.altmuenster.at/Gasthaus_Saegemuehle",
@@ -253,27 +253,27 @@ export const DINING: DiningSpot[] = [
     id: "auszeit",
     name: "Auszeit",
     cuisine: "Café / Pub",
-    description: "Relaxed café and pub in the heart of Altmünster.",
-    address: "Ebenzweierstraße 4, 4813 Altmünster",
+    description: "Relaxed café and pub in the heart of Altmuenster.",
+    address: "Ebenzweierstraße 4, 4813 Altmuenster",
     phone: "+43 7612 89962",
     website: "https://www.cafe-auszeit.at/",
     officialUrl: "https://www.altmuenster.at/Auszeit",
     image:
       "https://www.altmuenster.at/system/web/GetImage.ashx?fileId=3191586&mode=T&height=400&width=600&cropping=CENTER",
-    imageAlt: "Café Auszeit in Altmünster",
+    imageAlt: "Café Auszeit in Altmuenster",
   },
   {
     id: "hocheck",
     name: "Hocheck Landgasthof",
     cuisine: "Gasthof / Restaurant",
     description: "Landgasthof on the Kalvarienbergweg — alpine dining close to town.",
-    address: "Kalvarienbergweg 4, 4813 Altmünster",
+    address: "Kalvarienbergweg 4, 4813 Altmuenster",
     phone: "+43 7612 87461",
     website: "http://hocheck.at/",
     officialUrl: "https://www.altmuenster.at/Hocheck_Landgasthof_1",
     image:
       "https://www.altmuenster.at/system/web/GetImage.ashx?fileId=3191979&mode=T&height=400&width=600&cropping=CENTER",
-    imageAlt: "Hocheck Landgasthof near Altmünster",
+    imageAlt: "Hocheck Landgasthof near Altmuenster",
   },
 ];
 
@@ -306,7 +306,7 @@ export const EXPERIENCES: ExperienceCard[] = [
     shortDescription: "Summit views from Hochlecken and the Gmundnerberg panorama.",
     icon: Mountain,
     image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80",
-    imageAlt: "Alpine mountain peaks rising above green valleys near Altmünster",
+    imageAlt: "Alpine mountain peaks rising above green valleys near Altmuenster",
     details:
       "Rise above the lake on trails leading to Hochlecken and the Gmundnerberg viewpoint. Each ascent rewards you with sweeping views across Traunsee, the Traunstein, and the entire Salzkammergut. Well-marked paths suit both gentle walkers and seasoned hikers.",
     highlights: ["Hochlecken summit", "Gmundnerberg viewpoint", "Panoramic trails", "Alpine flora"],
@@ -330,7 +330,7 @@ export const EXPERIENCES: ExperienceCard[] = [
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
     imageAlt: "Traditional Austrian village architecture with church spire",
     details:
-      "Altmünster's historic centre preserves centuries of Salzkammergut character. Visit the faithfully restored Eggerhaus, the Kalvarienberg church, the Romanesque parish church tower, and the lakeside Seebühne. Churches in Neukirchen and Reindlmühl are also well worth a detour.",
+      "Altmuenster's historic centre preserves centuries of Salzkammergut character. Visit the faithfully restored Eggerhaus, the Kalvarienberg church, the Romanesque parish church tower, and the lakeside Seebühne. Churches in Neukirchen and Reindlmuhl are also well worth a detour.",
     highlights: ["Eggerhaus", "Kalvarienberg church", "Parish church", "Seebühne"],
   },
   {
@@ -341,7 +341,7 @@ export const EXPERIENCES: ExperienceCard[] = [
     image: "https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=800&q=80",
     imageAlt: "Cyclist on scenic alpine road overlooking a lake",
     details:
-      "With 84 kilometres of cycling paths and countless outdoor pursuits, Altmünster is an active traveller's dream. Cycle the lakeside promenade, play tennis in the fresh mountain air, or tee off at a nearby golf course framed by alpine peaks.",
+      "With 84 kilometres of cycling paths and countless outdoor pursuits, Altmuenster is an active traveller's dream. Cycle the lakeside promenade, play tennis in the fresh mountain air, or tee off at a nearby golf course framed by alpine peaks.",
     highlights: ["Lakeside cycling", "Tennis courts", "Golf nearby", "Mountain biking"],
   },
   {
@@ -377,7 +377,7 @@ export const ACCOMMODATIONS: Accommodation[] = [
     name: "Panoramahotel Traunstein",
     type: "Hotel",
     description: "Panoramic hotel on the Abteistraße with views over Lake Traunsee.",
-    address: "Abteistraße 10, 4813 Altmünster",
+    address: "Abteistraße 10, 4813 Altmuenster",
     phone: "+43 7612 87402",
     email: "office@hotel-traunstein.at",
     website: "https://www.hotel-traunstein.at/",
@@ -390,8 +390,8 @@ export const ACCOMMODATIONS: Accommodation[] = [
     id: "wildschuetz",
     name: "Hotel Wildschütz",
     type: "Hotel",
-    description: "Established hotel accommodation in Altmünster.",
-    address: "Württembergstraße 41, 4813 Altmünster",
+    description: "Established hotel accommodation in Altmuenster.",
+    address: "Württembergstraße 41, 4813 Altmuenster",
     phone: "+43 7612 20437",
     email: "info@hotel-wildschuetz.at",
     website: "https://www.hotel-wildschuetz.at/",
@@ -405,7 +405,7 @@ export const ACCOMMODATIONS: Accommodation[] = [
     name: "Berggasthof Urzn",
     type: "Gasthof",
     description: "Mountain guesthouse on the Gmundnerberg with lake panoramas.",
-    address: "Gmundnerberg 91, 4813 Altmünster",
+    address: "Gmundnerberg 91, 4813 Altmuenster",
     phone: "+43 7612 87214",
     email: "gasthaus@urzn.at",
     website: "https://urzn.at/",
@@ -419,7 +419,7 @@ export const ACCOMMODATIONS: Accommodation[] = [
     name: "Hocheck Landgasthof",
     type: "Gasthof",
     description: "Landgasthof on the Kalvarienbergweg — rooms and regional dining.",
-    address: "Kalvarienbergweg 4, 4813 Altmünster",
+    address: "Kalvarienbergweg 4, 4813 Altmuenster",
     phone: "+43 7612 87461",
     email: "info@hocheck.at",
     website: "http://hocheck.at/",
@@ -432,8 +432,8 @@ export const ACCOMMODATIONS: Accommodation[] = [
     id: "windlegern",
     name: "Almgasthof Windlegern",
     type: "Gasthof",
-    description: "Alpine guesthouse on the Kollmannsberg above Altmünster.",
-    address: "Kollmannsberg 122, 4813 Altmünster",
+    description: "Alpine guesthouse on the Kollmannsberg above Altmuenster.",
+    address: "Kollmannsberg 122, 4813 Altmuenster",
     phone: "+43 7617 2844",
     email: "gasthof@windlegern.at",
     website: "https://www.windlegern.at/",
@@ -444,24 +444,24 @@ export const ACCOMMODATIONS: Accommodation[] = [
   },
   {
     id: "altmuensterhof",
-    name: "Altmünsterhof",
+    name: "Altmuensterhof",
     type: "Private rooms",
     description: "Privatzimmer accommodation near the town centre.",
-    address: "Ackerweg 2, 4813 Altmünster",
+    address: "Ackerweg 2, 4813 Altmuenster",
     phone: "+43 7612 87475",
     email: "hotel@altmuensterhof.at",
     website: "http://www.altmuensterhof.at/",
     officialUrl: "https://www.altmuenster.at/Altmuensterhof",
     image:
       "https://www.altmuenster.at/system/web/GetImage.ashx?fileId=3192013&mode=T&height=400&width=600&cropping=CENTER",
-    imageAlt: "Altmünsterhof",
+    imageAlt: "Altmuensterhof",
   },
   {
     id: "fanni",
     name: "Café Pension Fanni",
     type: "Pension",
     description: "Pension and café in Neukirchen — breakfast pension with lakeside region charm.",
-    address: "Niederaustraße 1, 4814 Altmünster",
+    address: "Niederaustraße 1, 4814 Altmuenster",
     phone: "+43 7618 20044",
     email: "info@pension-fanni.at",
     website: "https://www.pension-fanni.at/",
@@ -474,8 +474,8 @@ export const ACCOMMODATIONS: Accommodation[] = [
     id: "rittertal",
     name: "Hotel Rittertal",
     type: "Hotel",
-    description: "Hotel on Lindenstraße in Altmünster.",
-    address: "Lindenstraße 7, 4813 Altmünster",
+    description: "Hotel on Lindenstraße in Altmuenster.",
+    address: "Lindenstraße 7, 4813 Altmuenster",
     phone: "+43 7612 871310",
     email: "albecker.m@gmx.at",
     officialUrl: "https://www.altmuenster.at/Hotel_Rittertal",
@@ -488,7 +488,7 @@ export const ACCOMMODATIONS: Accommodation[] = [
     name: "Pension Großalm",
     type: "Private rooms",
     description: "Privatzimmer on the Großalm with a peaceful alpine setting.",
-    address: "Großalm 44, 4814 Altmünster",
+    address: "Großalm 44, 4814 Altmuenster",
     phone: "+43 664 73970260",
     email: "grossalm@aon.at",
     website: "https://www.grossalm.at/",
@@ -501,8 +501,8 @@ export const ACCOMMODATIONS: Accommodation[] = [
     id: "schweizerhof",
     name: "Schweizerhof",
     type: "Gasthof",
-    description: "Gasthof on Hauptstraße in Altmünster.",
-    address: "Hauptstraße 17, 4813 Altmünster",
+    description: "Gasthof on Hauptstraße in Altmuenster.",
+    address: "Hauptstraße 17, 4813 Altmuenster",
     phone: "+43 664 1387665",
     officialUrl: "https://www.altmuenster.at/Schweizerhof_1",
     image:
@@ -535,7 +535,7 @@ export const ACTIVITIES: Activity[] = [
     id: "solarbad",
     title: "Solarbad Beach Day",
     category: "water",
-    description: "Swim, sunbathe, and relax at Altmünster's beloved lakeside bathing area.",
+    description: "Swim, sunbathe, and relax at Altmuenster's beloved lakeside bathing area.",
     duration: "Half day",
     image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80",
     imageAlt: "Sunny beach on alpine lake shore",
@@ -607,7 +607,7 @@ export const ACTIVITIES: Activity[] = [
     id: "horseback",
     title: "Forest Horseback Riding",
     category: "wellness",
-    description: "Guided rides through meadows and woodland trails around Altmünster.",
+    description: "Guided rides through meadows and woodland trails around Altmuenster.",
     duration: "2 hours",
     image: "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=600&q=80",
     imageAlt: "Horseback riding through alpine meadow",
@@ -671,7 +671,7 @@ export const EVENTS: Event[] = [
     date: "11 July 2026",
     month: "JUL",
     day: "11",
-    location: "Neukirchen, Altmünster",
+    location: "Neukirchen, Altmuenster",
     description: "Traditional village festival with live music, local food, and community spirit.",
     category: "Festival",
     officialUrl: "https://www.altmuenster.at/Dorffest_Neukirchen_9",
@@ -704,7 +704,7 @@ export const EVENTS: Event[] = [
     date: "16 July 2026 · 09:00–12:00",
     month: "JUL",
     day: "16",
-    location: "Marktgemeindeamt Altmünster",
+    location: "Marktgemeindeamt Altmuenster",
     description: "Ferien(s)pass event — a morning learning about local wildlife and hunting traditions.",
     category: "Family",
     officialUrl:
@@ -716,7 +716,7 @@ export const EVENTS: Event[] = [
     date: "Seasonal programme",
     month: "AUG",
     day: "01",
-    location: "Seebühne Altmünster",
+    location: "Seebühne Altmuenster",
     description: "Open-air concerts and cultural events on the lakeside stage.",
     category: "Culture",
     officialUrl: "https://www.altmuenster.at/Seebuehne",
@@ -805,7 +805,7 @@ export const MAP_MARKERS: MapMarker[] = [
   {
     id: "solarbad",
     name: "Solarbad Beach",
-    description: "Altmünster's beloved bathing area with lawns, swimming, and lake access.",
+    description: "Altmuenster's beloved bathing area with lawns, swimming, and lake access.",
     lat: 47.8998,
     lng: 13.7455,
     category: "nature",
@@ -826,8 +826,8 @@ export const MAP_MARKERS: MapMarker[] = [
   },
   {
     id: "historic",
-    name: "Parish Church Altmünster",
-    description: "Pfarrkirche Altmünster with its Romanesque tower — a landmark of the historic centre.",
+    name: "Parish Church Altmuenster",
+    description: "Pfarrkirche Altmuenster with its Romanesque tower — a landmark of the historic centre.",
     lat: 47.9014,
     lng: 13.7514,
     category: "culture",
@@ -849,7 +849,7 @@ export const MAP_MARKERS: MapMarker[] = [
   {
     id: "kalvarienberg",
     name: "Kalvarienberg Church",
-    description: "Kalvarienbergkirche overlooking Altmünster — a peaceful cultural landmark.",
+    description: "Kalvarienbergkirche overlooking Altmuenster — a peaceful cultural landmark.",
     lat: 47.9042,
     lng: 13.7548,
     category: "culture",
@@ -882,7 +882,7 @@ export const MAP_MARKERS: MapMarker[] = [
   {
     id: "station",
     name: "Train Station",
-    description: "Altmünster/Wörth station — direct connections to Gmunden, Linz, and Vienna.",
+    description: "Altmuenster/Woerth station — direct connections to Gmunden, Linz, and Vienna.",
     lat: 47.8965,
     lng: 13.7540,
     category: "practical",

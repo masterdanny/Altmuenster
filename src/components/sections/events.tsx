@@ -18,7 +18,7 @@ export function Events() {
         <SectionHeading
           eyebrow="Calendar"
           title="Events & Highlights"
-          description="Upcoming events from the official Altmünster Veranstaltungskalender — lakeside yoga, village festivals, and summer programmes."
+          description="Upcoming events from the official Altmuenster Veranstaltungskalender — lakeside yoga, village festivals, and summer programmes."
         />
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">

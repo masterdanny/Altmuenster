@@ -97,7 +97,7 @@ export function Inquiry() {
         <SectionHeading
           eyebrow="Get in Touch"
           title="Share Your Dream Trip"
-          description="Tell us about your ideal Altmünster experience — we'll help you plan every detail."
+          description="Tell us about your ideal Altmuenster experience — we'll help you plan every detail."
         />
 
         <SectionReveal>
@@ -123,7 +123,7 @@ export function Inquiry() {
                   </h3>
                   <p className="mt-3 max-w-sm text-muted-foreground">
                     Your inquiry has been received. Our team will craft a
-                    personalised Altmünster experience just for you.
+                    personalised Altmuenster experience just for you.
                   </p>
                   <Button
                     variant="outline"
@@ -224,7 +224,7 @@ export function Inquiry() {
                     <Label htmlFor="message">Message</Label>
                     <Textarea
                       id="message"
-                      placeholder="Tell us about your dream trip to Altmünster…"
+                      placeholder="Tell us about your dream trip to Altmuenster…"
                       {...register("message")}
                       aria-invalid={!!errors.message}
                     />

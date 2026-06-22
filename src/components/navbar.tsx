@@ -54,7 +54,7 @@ export function Navbar() {
           <Link
             href="#hero"
             className="group flex items-center gap-2.5"
-            aria-label="Altmünster am Traunsee — Home"
+            aria-label="Altmuenster am Traunsee — Home"
           >
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary/20">
               <Mountain className="h-5 w-5 text-primary" aria-hidden="true" />
@@ -66,7 +66,7 @@ export function Navbar() {
                   isScrolled ? "text-foreground" : "text-white"
                 )}
               >
-                Altmünster
+                Altmuenster
               </span>
               <span
                 className={cn(
@@ -156,7 +156,7 @@ export function Navbar() {
             <div className="flex h-full flex-col p-6">
               <div className="flex items-center justify-between">
                 <span className="font-serif text-xl font-semibold">
-                  Altmünster
+                  Altmuenster
                 </span>
                 <Button
                   variant="ghost"

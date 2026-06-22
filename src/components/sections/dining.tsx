@@ -19,7 +19,7 @@ export function Dining() {
         <SectionHeading
           eyebrow="Local Flavours"
           title="Taste the Salzkammergut"
-          description="A selection of restaurants and cafés from the official Altmünster gastronomy directory — 25 venues across the municipality."
+          description="A selection of restaurants and cafés from the official Altmuenster gastronomy directory — 25 venues across the municipality."
         />
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

@@ -17,8 +17,8 @@ export function CommunityNews() {
       <div className="container-wide">
         <SectionHeading
           eyebrow="From the Municipality"
-          title="What's Happening in Altmünster"
-          description="Latest news and events from the official Marktgemeinde Altmünster — always up to date at altmuenster.at."
+          title="What's Happening in Altmuenster"
+          description="Latest news and events from the official Marktgemeinde Altmuenster — always up to date at altmuenster.at."
           className="[&_h2]:text-primary-foreground [&_p]:text-white/70"
         />
 
