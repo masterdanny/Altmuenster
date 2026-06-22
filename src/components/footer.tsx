@@ -2,9 +2,23 @@
 
 import { Mountain, Mail, MapPin, Phone, ExternalLink } from "lucide-react";
 import Link from "next/link";
-import { NAV_LINKS, OFFICIAL_CONTACT, OFFICIAL_LINKS, SOCIAL_LINKS } from "@/lib/data";
+import { useMemo } from "react";
+import { useLocale } from "@/context/locale-context";
+import { OFFICIAL_CONTACT, OFFICIAL_LINKS, SOCIAL_LINKS } from "@/lib/data";
 
 export function Footer() {
+  const { t } = useLocale();
+
+  const navLinks = useMemo(
+    () => [
+      { href: "#welcome", label: t.nav.welcome },
+      { href: "#history", label: t.nav.history },
+      { href: "#map", label: t.nav.map },
+      { href: "#whats-on", label: t.nav.whatsOn },
+    ],
+    [t]
+  );
+
   return (
     <footer
       className="border-t border-border/60 bg-primary text-primary-foreground"
@@ -25,8 +39,7 @@ export function Footer() {
               </div>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-white/70">
-              Tourism guide for Altmünster am Traunsee. Official municipal
-              information is published at{" "}
+              {t.footer.tagline}{" "}
               <a
                 href={OFFICIAL_CONTACT.website}
                 className="underline underline-offset-2 hover:text-white"
@@ -39,10 +52,10 @@ export function Footer() {
 
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-accent">
-              Explore
+              {t.footer.explore}
             </h3>
             <ul className="space-y-2.5">
-              {NAV_LINKS.map((link) => (
+              {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -57,7 +70,7 @@ export function Footer() {
 
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-accent">
-              Municipality
+              {t.footer.municipality}
             </h3>
             <ul className="space-y-3 text-sm text-white/70">
               <li className="flex items-start gap-2">
@@ -67,7 +80,7 @@ export function Footer() {
                   <br />
                   {OFFICIAL_CONTACT.postalCode} {OFFICIAL_CONTACT.locality}
                   <br />
-                  {OFFICIAL_CONTACT.country}
+                  {t.common.country}
                 </address>
               </li>
               <li className="flex items-center gap-2">
@@ -95,14 +108,14 @@ export function Footer() {
               rel="noopener noreferrer"
               className="mt-4 inline-flex items-center gap-1.5 text-xs text-white/60 transition-colors hover:text-white"
             >
-              Opening hours
+              {t.common.openingHours}
               <ExternalLink className="h-3 w-3" aria-hidden="true" />
             </a>
           </div>
 
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-accent">
-              Official Site
+              {t.common.officialSite}
             </h3>
             <a
               href={OFFICIAL_CONTACT.website}
@@ -132,12 +145,9 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
           <p className="text-xs text-white/50">
-            © {new Date().getFullYear()} {OFFICIAL_CONTACT.name}. Tourism
-            presentation — verify details at altmuenster.at.
+            © {new Date().getFullYear()} {OFFICIAL_CONTACT.name}. {t.footer.copyright}
           </p>
-          <p className="text-xs text-white/40">
-            Naturpark Attersee-Traunsee · Salzkammergut · Upper Austria
-          </p>
+          <p className="text-xs text-white/40">{t.common.regionLine}</p>
         </div>
       </div>
     </footer>

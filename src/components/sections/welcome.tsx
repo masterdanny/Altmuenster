@@ -4,14 +4,19 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { SectionHeading } from "@/components/motion/section-heading";
 import { SectionReveal } from "@/components/motion/section-reveal";
+import { useLocale } from "@/context/locale-context";
 import { useAnimatedCounter } from "@/hooks/use-animated-counter";
 import { STATS } from "@/lib/data";
 
 function StatCard({
   stat,
+  label,
+  sublabel,
   index,
 }: {
   stat: (typeof STATS)[number];
+  label: string;
+  sublabel: string;
   index: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -32,15 +37,17 @@ function StatCard({
           {stat.suffix}
         </p>
         <p className="mt-2 text-sm font-semibold uppercase tracking-wider text-foreground">
-          {stat.label}
+          {label}
         </p>
-        <p className="mt-1 text-sm text-muted-foreground">{stat.sublabel}</p>
+        <p className="mt-1 text-sm text-muted-foreground">{sublabel}</p>
       </motion.div>
     </SectionReveal>
   );
 }
 
 export function Welcome() {
+  const { t } = useLocale();
+
   return (
     <section
       id="welcome"
@@ -49,14 +56,20 @@ export function Welcome() {
     >
       <div className="container-wide">
         <SectionHeading
-          eyebrow="Welcome"
-          title="Welcome to Altmünster"
-          description="Nestled on the western shore of Lake Traunsee, within the protected landscapes of Naturpark Attersee-Traunsee, Altmünster offers a gentler rhythm of life — where alpine peaks meet crystal waters, and every path leads to wonder. A peaceful alternative to bustling Gmunden, yet close enough to explore the entire Salzkammergut."
+          eyebrow={t.welcome.eyebrow}
+          title={t.welcome.title}
+          description={t.welcome.description}
         />
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {STATS.map((stat, i) => (
-            <StatCard key={stat.label} stat={stat} index={i} />
+            <StatCard
+              key={stat.label}
+              stat={stat}
+              label={t.welcome.stats[i].label}
+              sublabel={t.welcome.stats[i].sublabel}
+              index={i}
+            />
           ))}
         </div>
       </div>

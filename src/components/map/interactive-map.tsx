@@ -7,8 +7,8 @@ import { ExternalLink, Footprints, Minus, Plus } from "lucide-react";
 import { useTheme } from "next-themes";
 import L from "leaflet";
 import { Button } from "@/components/ui/button";
+import { useLocale } from "@/context/locale-context";
 import {
-  MAP_CATEGORY_LABELS,
   MAP_CENTER,
   MAP_MARKERS,
   type MapFilter,
@@ -53,23 +53,26 @@ function directionsUrl(marker: MapMarker) {
 }
 
 function MapPopup({ marker }: { marker: MapMarker }) {
+  const { t } = useLocale();
+  const localized = t.map.markers[marker.id as keyof typeof t.map.markers];
+
   return (
     <div className="map-popup">
       <div className="relative h-28 w-full overflow-hidden rounded-lg">
         <Image
           src={marker.image}
-          alt={marker.imageAlt}
+          alt={localized?.imageAlt ?? marker.imageAlt}
           fill
           className="object-cover"
           sizes="280px"
         />
       </div>
-      <span className="map-popup__badge">{MAP_CATEGORY_LABELS[marker.category]}</span>
-      <h3 className="map-popup__title">{marker.name}</h3>
-      <p className="map-popup__desc">{marker.description}</p>
+      <span className="map-popup__badge">{t.map.categories[marker.category]}</span>
+      <h3 className="map-popup__title">{localized?.name ?? marker.name}</h3>
+      <p className="map-popup__desc">{localized?.description ?? marker.description}</p>
       <p className="map-popup__walk">
         <Footprints className="h-3.5 w-3.5" aria-hidden="true" />
-        {marker.walkTime}
+        {localized?.walkTime ?? marker.walkTime}
       </p>
       <a
         href={directionsUrl(marker)}
@@ -77,7 +80,7 @@ function MapPopup({ marker }: { marker: MapMarker }) {
         rel="noopener noreferrer"
         className="map-popup__link"
       >
-        Get directions
+        {t.map.getDirections}
         <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
       </a>
     </div>
@@ -127,6 +130,7 @@ function ScrollWheelZoomOnHover() {
 
 function MapZoomControls() {
   const map = useMap();
+  const { t } = useLocale();
 
   const zoomBy = (delta: number) => {
     const center = map.getCenter();
@@ -146,7 +150,7 @@ function MapZoomControls() {
           size="icon"
           className="map-zoom-btn"
           onClick={() => zoomBy(1)}
-          aria-label="Zoom in"
+          aria-label={t.map.zoomIn}
         >
           <Plus className="h-4 w-4" />
         </Button>
@@ -156,7 +160,7 @@ function MapZoomControls() {
           size="icon"
           className="map-zoom-btn"
           onClick={() => zoomBy(-1)}
-          aria-label="Zoom out"
+          aria-label={t.map.zoomOut}
         >
           <Minus className="h-4 w-4" />
         </Button>
@@ -234,6 +238,7 @@ export function InteractiveMap({
   activeId,
   onActiveChange,
 }: InteractiveMapProps) {
+  const { t } = useLocale();
   const markerRefs = useRef<Map<string, L.Marker>>(new Map());
 
   const filtered = useMemo(
@@ -252,7 +257,7 @@ export function InteractiveMap({
       maxZoom={18}
       scrollWheelZoom={false}
       className={cn("alt-map h-[380px] w-full sm:h-[480px]")}
-      aria-label="Interactive map of Altmünster am Traunsee"
+      aria-label={t.map.ariaLabel}
     >
       <ThemeTileLayer />
       <ScrollWheelZoomOnHover />

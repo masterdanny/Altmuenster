@@ -4,8 +4,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useLocale } from "@/context/locale-context";
 
 export function BackToTop() {
+  const { t } = useLocale();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -29,7 +31,7 @@ export function BackToTop() {
             size="icon"
             className="h-12 w-12 rounded-full shadow-lg"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            aria-label="Back to top"
+            aria-label={t.common.backToTop}
           >
             <ArrowUp className="h-5 w-5" />
           </Button>

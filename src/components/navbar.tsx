@@ -3,17 +3,31 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Mountain } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { LanguageToggle } from "@/components/language-toggle";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { useLocale } from "@/context/locale-context";
 import { useActiveSection } from "@/hooks/use-active-section";
-import { NAV_LINKS } from "@/lib/data";
+import { OFFICIAL_CONTACT } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
+  const { t } = useLocale();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const activeSection = useActiveSection();
+
+  const navLinks = useMemo(
+    () => [
+      { href: "#welcome", label: t.nav.welcome },
+      { href: "#history", label: t.nav.history },
+      { href: "#map", label: t.nav.map },
+      { href: "#whats-on", label: t.nav.whatsOn },
+    ],
+    [t]
+  );
+
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -49,12 +63,12 @@ export function Navbar() {
       >
         <nav
           className="container-wide flex h-[4.5rem] items-center justify-between px-4 sm:px-6 lg:px-8"
-          aria-label="Main navigation"
+          aria-label={t.nav.main}
         >
           <Link
             href="#hero"
             className="group flex items-center gap-2.5"
-            aria-label="Altmünster am Traunsee — Home"
+            aria-label={t.common.homeAria}
           >
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary/20">
               <Mountain className="h-5 w-5 text-primary" aria-hidden="true" />
@@ -80,7 +94,7 @@ export function Navbar() {
           </Link>
 
           <div className="hidden items-center gap-1 lg:flex">
-            {NAV_LINKS.map((link) => (
+            {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -105,19 +119,7 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-2">
-            <a
-              href="https://www.altmuenster.at"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(
-                "hidden text-xs font-medium uppercase tracking-wider transition-colors md:block",
-                isScrolled
-                  ? "text-muted-foreground hover:text-foreground"
-                  : "text-white/60 hover:text-white"
-              )}
-            >
-              DE
-            </a>
+            <LanguageToggle scrolled={isScrolled} />
             <ThemeToggle
               className={cn(
                 !isScrolled && "text-white hover:text-white hover:bg-white/10"
@@ -125,11 +127,11 @@ export function Navbar() {
             />
             <Button variant="gold" size="sm" className="hidden sm:inline-flex" asChild>
               <a
-                href="https://www.altmuenster.at"
+                href={OFFICIAL_CONTACT.website}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Official Site
+                {t.common.officialSite}
               </a>
             </Button>
             <Button
@@ -137,7 +139,7 @@ export function Navbar() {
               size="icon"
               className={cn("lg:hidden", !isScrolled && "text-white hover:text-white hover:bg-white/10")}
               onClick={() => setMobileOpen(true)}
-              aria-label="Open menu"
+              aria-label={t.nav.openMenu}
             >
               <Menu className="h-5 w-5" />
             </Button>
@@ -162,13 +164,16 @@ export function Navbar() {
                   variant="ghost"
                   size="icon"
                   onClick={() => setMobileOpen(false)}
-                  aria-label="Close menu"
+                  aria-label={t.nav.closeMenu}
                 >
                   <X className="h-5 w-5" />
                 </Button>
               </div>
-              <nav className="mt-10 flex flex-col gap-2" aria-label="Mobile navigation">
-                {NAV_LINKS.map((link, i) => (
+              <div className="mt-6">
+                <LanguageToggle scrolled />
+              </div>
+              <nav className="mt-8 flex flex-col gap-2" aria-label={t.nav.mobile}>
+                {navLinks.map((link, i) => (
                   <motion.div
                     key={link.href}
                     initial={{ opacity: 0, x: -20 }}
@@ -190,21 +195,21 @@ export function Navbar() {
               </nav>
               <div className="mt-auto space-y-3">
                 <a
-                  href="https://www.altmuenster.at"
+                  href={OFFICIAL_CONTACT.website}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block text-center text-sm text-muted-foreground"
                 >
-                  Official German site →
+                  {t.common.officialSiteShort}
                 </a>
                 <Button variant="gold" size="lg" className="w-full" asChild>
                   <a
-                    href="https://www.altmuenster.at"
+                    href={OFFICIAL_CONTACT.website}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setMobileOpen(false)}
                   >
-                    Official Site
+                    {t.common.officialSite}
                   </a>
                 </Button>
               </div>

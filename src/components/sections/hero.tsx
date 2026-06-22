@@ -5,9 +5,10 @@ import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { HERO_FACTS } from "@/lib/data";
+import { useLocale } from "@/context/locale-context";
 
 export function Hero() {
+  const { t } = useLocale();
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -15,6 +16,7 @@ export function Hero() {
   });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
   return (
     <section
       id="hero"
@@ -25,7 +27,7 @@ export function Hero() {
       <motion.div style={{ y }} className="absolute inset-0">
         <Image
           src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85"
-          alt="Drone view of Lake Traunsee with alpine mountains in Salzkammergut, Austria"
+          alt={t.hero.imageAlt}
           fill
           priority
           className="object-cover"
@@ -44,7 +46,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-white/80"
         >
-          Salzkammergut · Upper Austria
+          {t.hero.region}
         </motion.p>
 
         <motion.h1
@@ -65,7 +67,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.7 }}
           className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/85 sm:text-xl"
         >
-          Where the Alps meet the deepest lake in Austria
+          {t.hero.tagline}
         </motion.p>
 
         <motion.div
@@ -74,7 +76,7 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.85 }}
           className="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-3"
         >
-          {HERO_FACTS.map((fact) => (
+          {t.hero.facts.map((fact) => (
             <div
               key={fact.label}
               className="rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-md"
@@ -94,7 +96,7 @@ export function Hero() {
           className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
           <Button variant="gold" size="lg" asChild>
-            <a href="#welcome">Explore the Destination</a>
+            <a href="#welcome">{t.hero.explore}</a>
           </Button>
           <Button
             variant="outline"
@@ -102,7 +104,7 @@ export function Hero() {
             className="border-white/30 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
             asChild
           >
-            <a href="#history">Discover the History</a>
+            <a href="#history">{t.hero.history}</a>
           </Button>
         </motion.div>
       </motion.div>
@@ -113,7 +115,7 @@ export function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.8 }}
         className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-white/70 transition-colors hover:text-white"
-        aria-label="Scroll to welcome section"
+        aria-label={t.hero.scrollDown}
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}

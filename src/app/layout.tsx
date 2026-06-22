@@ -17,32 +17,32 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Altmünster am Traunsee | Salzkammergut Tourism",
+  title: "Altmünster am Traunsee | Salzkammergut",
   description:
-    "Discover Altmünster am Traunsee — a serene lakeside gem in Upper Austria's Salzkammergut. Swimming, hiking, culture, and alpine beauty on Austria's deepest lake.",
+    "Entdecken Sie Altmünster am Traunsee — ein ruhiges Seejuwel im Salzkammergut in Oberösterreich. Baden, Wandern, Kultur und alpine Natur am tiefsten See Österreichs.",
   keywords: [
     "Altmünster",
     "Traunsee",
     "Salzkammergut",
-    "Austria tourism",
+    "Österreich Urlaub",
     "Lake Traunsee",
     "Naturpark Attersee-Traunsee",
-    "Upper Austria",
+    "Oberösterreich",
   ],
   authors: [{ name: "Altmünster am Traunsee" }],
   openGraph: {
-    title: "Altmünster am Traunsee | Where the Alps Meet the Deepest Lake",
+    title: "Altmünster am Traunsee | Wo die Alpen auf den tiefsten See treffen",
     description:
-      "Plan your visit to Altmünster — swimming, hiking, culture, and breathtaking nature on the western shore of Lake Traunsee.",
+      "Altmünster am Traunsee entdecken — Baden, Wandern, Kultur und alpine Natur am westlichen Ufer des Traunsees.",
     type: "website",
-    locale: "en_US",
+    locale: "de_AT",
     siteName: "Altmünster am Traunsee",
     images: [
       {
         url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80",
         width: 1200,
         height: 630,
-        alt: "Lake Traunsee with alpine mountains in Salzkammergut, Austria",
+        alt: "Traunsee mit Alpengipfeln im Salzkammergut, Österreich",
       },
     ],
   },
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Altmünster am Traunsee",
     description:
-      "Discover serene lakeside beauty in Austria's Salzkammergut region.",
+      "Ruhige Seeidylle im Salzkammergut in Oberösterreich.",
     images: [
       "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80",
     ],
@@ -66,7 +66,7 @@ const jsonLd = {
   "@type": "TouristDestination",
   name: "Altmünster am Traunsee",
   description:
-    "A serene lakeside destination in Upper Austria's Salzkammergut, on the western shore of Lake Traunsee within Naturpark Attersee-Traunsee.",
+    "Ein ruhiges Seeziel im Salzkammergut in Oberösterreich, am westlichen Ufer des Traunsees im Naturpark Attersee-Traunsee.",
   url: "https://www.altmuenster.at",
   geo: {
     "@type": "GeoCoordinates",
@@ -82,13 +82,13 @@ const jsonLd = {
   },
   telephone: "+43-7612-87611",
   email: "gemeinde@altmuenster.ooe.gv.at",
-  touristType: ["Nature tourism", "Cultural tourism", "Family tourism"],
+  touristType: ["Naturtourismus", "Kulturtourismus", "Familientourismus"],
   containedInPlace: {
     "@type": "Place",
     name: "Salzkammergut",
     address: {
       "@type": "PostalAddress",
-      addressRegion: "Upper Austria",
+      addressRegion: "Oberösterreich",
       addressCountry: "AT",
     },
   },
@@ -100,7 +100,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="de" suppressHydrationWarning>
       <body className={`${inter.variable} ${cormorant.variable} antialiased`}>
         <script
           type="application/ld+json"
