@@ -22,7 +22,7 @@ export function Stay() {
         <SectionHeading
           eyebrow="Accommodation"
           title="Where to Stay"
-          description="Verified guesthouses, hotels, and pensions listed by the municipality of Altmuenster — book directly with each property."
+          description="Verified guesthouses, hotels, and pensions listed by the municipality of Altmünster — book directly with each property."
         />
 
         <div className="-mx-4 flex gap-5 overflow-x-auto px-4 pb-4 snap-x snap-mandatory lg:mx-0 lg:grid lg:grid-cols-3 lg:overflow-visible lg:px-0 lg:pb-0 xl:grid-cols-4">

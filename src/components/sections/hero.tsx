@@ -53,7 +53,7 @@ export function Hero() {
           transition={{ duration: 0.9, delay: 0.4 }}
           className="font-serif text-5xl font-light tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl"
         >
-          Altmuenster
+          Altmünster
           <span className="block text-3xl font-normal italic text-white/90 sm:text-4xl md:text-5xl">
             am Traunsee
           </span>

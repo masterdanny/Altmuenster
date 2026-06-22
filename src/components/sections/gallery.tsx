@@ -56,7 +56,7 @@ export function Gallery() {
         <SectionHeading
           eyebrow="Aerial Views"
           title="See It From Above"
-          description="Soar over Traunsee and discover Altmuenster from above — or check the live Gmundnerberg panorama camera from the municipality."
+          description="Soar over Traunsee and discover Altmünster from above — or check the live Gmundnerberg panorama camera from the municipality."
         />
 
         <div className="mb-6 flex justify-center">
@@ -77,7 +77,7 @@ export function Gallery() {
             <div className="group relative aspect-video overflow-hidden rounded-2xl shadow-lg">
               <iframe
                 src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?rel=0&modestbranding=1`}
-                title="Drone video of Altmuenster am Traunsee and Lake Traunsee"
+                title="Drone video of Altmünster am Traunsee and Lake Traunsee"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="absolute inset-0 h-full w-full"

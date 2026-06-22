@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const isGithubPages = process.env.GITHUB_PAGES === "true";
+// ASCII repo slug for GitHub Pages URLs only — not used in visible site copy
 const repoName = "Altmuenster";
 
 const nextConfig: NextConfig = {

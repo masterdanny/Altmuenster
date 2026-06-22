@@ -18,14 +18,14 @@ export function Footer() {
                 <Mountain className="h-5 w-5" aria-hidden="true" />
               </div>
               <div>
-                <p className="font-serif text-xl font-semibold">Altmuenster</p>
+                <p className="font-serif text-xl font-semibold">Altmünster</p>
                 <p className="text-xs uppercase tracking-[0.15em] text-white/60">
                   am Traunsee
                 </p>
               </div>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-white/70">
-              Tourism guide for Altmuenster am Traunsee. Official municipal
+              Tourism guide for Altmünster am Traunsee. Official municipal
               information is published at{" "}
               <a
                 href={OFFICIAL_CONTACT.website}

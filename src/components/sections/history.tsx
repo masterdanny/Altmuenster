@@ -19,7 +19,7 @@ export function History() {
         <SectionHeading
           eyebrow="Heritage"
           title="History & Good to Know"
-          description="Altmuenster's name recalls its monastic past — today a lakeside market town in one of Austria's most beloved landscapes."
+          description="Altmünster's name recalls its monastic past — today a lakeside market town in one of Austria's most beloved landscapes."
         />
 
         <div className="grid gap-5 md:grid-cols-2">

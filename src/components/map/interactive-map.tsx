@@ -252,7 +252,7 @@ export function InteractiveMap({
       maxZoom={18}
       scrollWheelZoom={false}
       className={cn("alt-map h-[380px] w-full sm:h-[480px]")}
-      aria-label="Interactive map of Altmuenster am Traunsee"
+      aria-label="Interactive map of Altmünster am Traunsee"
     >
       <ThemeTileLayer />
       <ScrollWheelZoomOnHover />

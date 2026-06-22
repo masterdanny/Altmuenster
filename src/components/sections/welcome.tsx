@@ -50,8 +50,8 @@ export function Welcome() {
       <div className="container-wide">
         <SectionHeading
           eyebrow="Welcome"
-          title="Welcome to Altmuenster"
-          description="Nestled on the western shore of Lake Traunsee, within the protected landscapes of Naturpark Attersee-Traunsee, Altmuenster offers a gentler rhythm of life — where alpine peaks meet crystal waters, and every path leads to wonder. A peaceful alternative to bustling Gmunden, yet close enough to explore the entire Salzkammergut."
+          title="Welcome to Altmünster"
+          description="Nestled on the western shore of Lake Traunsee, within the protected landscapes of Naturpark Attersee-Traunsee, Altmünster offers a gentler rhythm of life — where alpine peaks meet crystal waters, and every path leads to wonder. A peaceful alternative to bustling Gmunden, yet close enough to explore the entire Salzkammergut."
         />
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

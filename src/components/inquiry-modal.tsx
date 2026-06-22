@@ -89,7 +89,7 @@ export function InquiryModal() {
             <DialogTitle className="mt-4">Thank You!</DialogTitle>
             <DialogDescription className="mt-2">
               We&apos;ll be in touch with personalised recommendations for your
-              Altmuenster trip.
+              Altmünster trip.
             </DialogDescription>
             <Button className="mt-6" onClick={closeInquiry}>
               Close
@@ -101,7 +101,7 @@ export function InquiryModal() {
               <DialogTitle>Plan Your Visit</DialogTitle>
               <DialogDescription>
                 Share a few details and we&apos;ll help craft your perfect
-                Altmuenster experience.
+                Altmünster experience.
               </DialogDescription>
             </DialogHeader>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>

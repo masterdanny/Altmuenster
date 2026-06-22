@@ -1,6 +1,6 @@
-# Altmuenster am Traunsee
+# Altmünster am Traunsee
 
-Premium tourism website for Altmuenster am Traunsee, Upper Austria.
+Premium tourism website for Altmünster am Traunsee, Upper Austria.
 
 ## Requirements
 
@@ -42,6 +42,6 @@ Then open **http://localhost:3456**.
 
 ## GitHub Pages
 
-Live site: **https://masterdanny.github.io/Altmuenster/**
+Live site: **https://masterdanny.github.io/Altmuenster/** (ASCII repo name for GitHub; the site itself displays Altmünster)
 
 Pushes to `main` deploy automatically via GitHub Actions. In the repo settings, set **Pages → Build and deployment → Source** to **GitHub Actions**.

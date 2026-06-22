@@ -59,7 +59,7 @@ export function Plan() {
                     <p className="font-medium text-foreground">By Train</p>
                     <p>
                       ÖBB from Vienna (~2.5h) and Linz (~45min) to
-                      Altmuenster/Woerth. Change at Attnang-Puchheim for
+                      Altmünster/Wörth. Change at Attnang-Puchheim for
                       international routes.
                     </p>
                   </div>
@@ -69,7 +69,7 @@ export function Plan() {
                   <div>
                     <p className="font-medium text-foreground">By Car</p>
                     <p>
-                      A1 to Vöcklabruck, then B145 to Altmuenster. Gmunden is 15
+                      A1 to Vöcklabruck, then B145 to Altmünster. Gmunden is 15
                       min; Bad Ischl 30 min.
                     </p>
                   </div>
@@ -184,7 +184,7 @@ export function Plan() {
               </h3>
               <p className="mt-2 max-w-2xl text-sm text-white/75">
                 For bookings, permits, and official information, reach the
-                Marktgemeinde Altmuenster directly.
+                Marktgemeinde Altmünster directly.
               </p>
               <ul className="mt-6 flex flex-wrap gap-6 text-sm">
                 <li className="flex items-center gap-2">
