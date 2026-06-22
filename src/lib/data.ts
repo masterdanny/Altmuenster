@@ -101,6 +101,10 @@ export const GOOD_TO_KNOW = [
   },
 ] as const;
 
+/** Local hero asset — identical file served to every viewport */
+export const HERO_IMAGE = "/images/hero.jpg";
+export const HERO_IMAGE_POSITION = "50% 42%";
+
 export const HERO_FACTS = [
   { value: "191 m", label: "Austria's deepest lake" },
   { value: "45 min", label: "From Linz by train" },

@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     siteName: "Altmünster am Traunsee",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80",
+        url: "https://masterdanny.github.io/Altmuenster/images/hero.jpg",
         width: 1200,
         height: 630,
         alt: "Traunsee mit Alpengipfeln im Salzkammergut, Österreich",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     description:
       "Ruhige Seeidylle im Salzkammergut in Oberösterreich.",
     images: [
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80",
+      "https://masterdanny.github.io/Altmuenster/images/hero.jpg",
     ],
   },
   robots: {

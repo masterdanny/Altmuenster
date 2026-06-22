@@ -7,9 +7,7 @@ import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { useLocale } from "@/context/locale-context";
 import { useMediaQuery } from "@/hooks/use-media-query";
-
-const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85";
+import { HERO_IMAGE, HERO_IMAGE_POSITION } from "@/lib/data";
 
 export function Hero() {
   const { t } = useLocale();
@@ -34,14 +32,21 @@ export function Hero() {
       <motion.div
         style={enableParallax ? { y } : undefined}
         className="absolute inset-0"
+        aria-hidden="true"
       >
         <Image
           src={HERO_IMAGE}
-          alt={t.hero.imageAlt}
+          alt=""
           fill
           priority
-          className="object-cover object-center"
+          unoptimized
           sizes="100vw"
+          draggable={false}
+          className="pointer-events-none select-none"
+          style={{
+            objectFit: "cover",
+            objectPosition: HERO_IMAGE_POSITION,
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/25 to-black/65" />
       </motion.div>
@@ -167,6 +172,8 @@ export function Hero() {
           <ChevronDown className="h-8 w-8" />
         </motion.div>
       </motion.a>
+
+      <span className="sr-only">{t.hero.imageAlt}</span>
     </section>
   );
 }
