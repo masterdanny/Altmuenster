@@ -38,4 +38,10 @@ Then open **http://localhost:3456**.
 | Internal Server Error / 500 | Stop all dev servers, then `npm run dev:clean` |
 | Blank page / map errors | Hard-refresh the browser (Cmd+Shift+R) |
 | Port already in use | Stop the other process or run `npm run dev -- -p 4000` |
-| Node too old | Upgrade to Node 18.18+ with `nvm install 20` |# Altm-nster
+| Node too old | Upgrade to Node 18.18+ with `nvm install 20` |
+
+## GitHub Pages
+
+Live site: **https://masterdanny.github.io/Altm-nster/**
+
+Pushes to `main` deploy automatically via GitHub Actions. In the repo settings, set **Pages → Build and deployment → Source** to **GitHub Actions**.
