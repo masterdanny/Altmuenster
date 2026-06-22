@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Mountain } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { CoatOfArms } from "@/components/coat-of-arms";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -79,8 +80,14 @@ export function Navbar() {
             )}
             aria-label={t.common.homeAria}
           >
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary/20">
-              <Mountain className="h-5 w-5 text-primary" aria-hidden="true" />
+            <div
+              className={cn(
+                "flex h-10 w-9 shrink-0 items-center justify-center rounded-lg transition-opacity group-hover:opacity-90",
+                isScrolled ? "bg-primary/5" : "bg-white/15 backdrop-blur-sm"
+              )}
+              title={t.common.coatOfArms}
+            >
+              <CoatOfArms height={34} />
             </div>
             <div className="block min-w-0">
               <span
@@ -178,9 +185,17 @@ export function Navbar() {
           >
             <div className="flex h-full flex-col p-4 pt-5 sm:p-6">
               <div className="flex items-center justify-between">
-                <span className="font-serif text-xl font-semibold">
-                  Altmünster
-                </span>
+                <div className="flex items-center gap-2.5">
+                  <div
+                    className="flex h-10 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/5"
+                    title={t.common.coatOfArms}
+                  >
+                    <CoatOfArms height={34} />
+                  </div>
+                  <span className="font-serif text-xl font-semibold">
+                    Altmünster
+                  </span>
+                </div>
                 <Button
                   variant="ghost"
                   size="icon"

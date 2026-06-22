@@ -1,11 +1,17 @@
 "use client";
 
-import { Mountain, Mail, MapPin, Phone, ExternalLink } from "lucide-react";
+import { Mail, MapPin, Phone, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { useMemo } from "react";
+import { CoatOfArms } from "@/components/coat-of-arms";
 import { ShowMore } from "@/components/show-more";
 import { useLocale } from "@/context/locale-context";
-import { OFFICIAL_CONTACT, OFFICIAL_LINKS, SOCIAL_LINKS } from "@/lib/data";
+import {
+  OFFICIAL_CONTACT,
+  OFFICIAL_LINKS,
+  SOCIAL_LINKS,
+  WAPPEN_ATTRIBUTION,
+} from "@/lib/data";
 
 export function Footer() {
   const { t } = useLocale();
@@ -121,8 +127,11 @@ export function Footer() {
   const brandBlock = (
     <div>
       <div className="flex items-center gap-2.5">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10">
-          <Mountain className="h-5 w-5" aria-hidden="true" />
+        <div
+          className="flex h-10 w-9 shrink-0 items-center justify-center rounded-xl bg-white/10"
+          title={t.common.coatOfArms}
+        >
+          <CoatOfArms height={32} />
         </div>
         <div>
           <p className="font-serif text-xl font-semibold">Altmünster</p>
@@ -172,9 +181,20 @@ export function Footer() {
         </div>
 
         <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-center sm:mt-12 sm:gap-4 sm:pt-8 sm:text-left sm:flex-row">
-          <p className="text-xs text-white/50">
-            © {new Date().getFullYear()} {OFFICIAL_CONTACT.name}. {t.footer.copyright}
-          </p>
+          <div className="space-y-1">
+            <p className="text-xs text-white/50">
+              © {new Date().getFullYear()} {OFFICIAL_CONTACT.name}.{" "}
+              {t.footer.copyright}
+            </p>
+            <a
+              href={WAPPEN_ATTRIBUTION}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[10px] text-white/35 transition-colors hover:text-white/55"
+            >
+              {t.common.coatOfArmsCredit}
+            </a>
+          </div>
           <p className="text-xs text-white/40">{t.common.regionLine}</p>
         </div>
       </div>

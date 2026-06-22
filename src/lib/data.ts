@@ -112,6 +112,11 @@ export const HERO_IMAGE_POSITION = "50% 42%";
 export const HERO_IMAGE_MOBILE = asset("/images/hero-mobile.jpg");
 export const HERO_IMAGE_MOBILE_POSITION = "50% 45%";
 
+/** Coat of arms (Wappen) — public domain, Wikimedia Commons */
+export const WAPPEN_IMAGE = asset("/images/wappen.svg");
+export const WAPPEN_ATTRIBUTION =
+  "https://commons.wikimedia.org/wiki/File:Wappen_Altm%C3%BCnster.svg";
+
 export const HERO_FACTS = [
   { value: "191 m", label: "Austria's deepest lake" },
   { value: "45 min", label: "From Linz by train" },

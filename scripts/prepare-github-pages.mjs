@@ -11,7 +11,7 @@ if (!existsSync(indexPath)) {
   process.exit(1);
 }
 
-for (const file of ["hero.jpg", "hero-mobile.jpg"]) {
+for (const file of ["hero.jpg", "hero-mobile.jpg", "wappen.svg"]) {
   const heroPath = join(outDir, "images", file);
   if (!existsSync(heroPath)) {
     console.error(`Missing out/images/${file} — hero image was not exported.`);
