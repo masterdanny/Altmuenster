@@ -37,7 +37,7 @@ const de = {
     history: "Geschichte erleben",
     scrollDown: "Zum Willkommensbereich scrollen",
     imageAlt:
-      "Blick über den Traunsee auf Altmünster und die umliegenden Alpen im Salzkammergut",
+      "Luftaufnahme des Traunsees mit Alpengipfeln im Salzkammergut, Österreich",
     facts: [
       { value: "191 m", label: "Tiefster See Österreichs" },
       { value: "45 Min.", label: "Mit dem Zug ab Linz" },
@@ -359,7 +359,7 @@ const en = {
     history: "Discover the History",
     scrollDown: "Scroll to welcome section",
     imageAlt:
-      "View over Lake Traunsee towards Altmünster and the surrounding Alps in Salzkammergut",
+      "Drone view of Lake Traunsee with alpine mountains in Salzkammergut, Austria",
     facts: [
       { value: "191 m", label: "Austria's deepest lake" },
       { value: "45 min", label: "From Linz by train" },

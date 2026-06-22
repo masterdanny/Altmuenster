@@ -49,10 +49,10 @@ export const metadata: Metadata = {
     siteName: "Altmünster am Traunsee",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80",
         width: 1200,
         height: 630,
-        alt: "Blick über den Traunsee auf Altmünster und die Alpen im Salzkammergut",
+        alt: "Traunsee mit Alpengipfeln im Salzkammergut, Österreich",
       },
     ],
   },
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     description:
       "Ruhige Seeidylle im Salzkammergut in Oberösterreich.",
     images: [
-      "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=1200&q=80",
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80",
     ],
   },
   robots: {

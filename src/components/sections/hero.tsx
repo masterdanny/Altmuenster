@@ -9,7 +9,7 @@ import { useLocale } from "@/context/locale-context";
 import { useMediaQuery } from "@/hooks/use-media-query";
 
 const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=1920&q=90";
+  "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85";
 
 export function Hero() {
   const { t } = useLocale();
@@ -40,10 +40,10 @@ export function Hero() {
           alt={t.hero.imageAlt}
           fill
           priority
-          className="object-cover"
+          className="object-cover object-center"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-black/15 md:bg-gradient-to-b md:from-black/45 md:via-black/25 md:to-black/65" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/25 to-black/65" />
       </motion.div>
 
       {/* Mobile: image-first, title only at the bottom */}
