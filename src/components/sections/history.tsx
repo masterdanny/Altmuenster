@@ -39,7 +39,7 @@ export function History() {
               <SectionReveal key={item.title} delay={i * 0.08}>
                 <motion.article
                   whileHover={{ y: -3 }}
-                  className="h-full rounded-2xl border border-border/60 bg-card p-6 shadow-sm"
+                  className="h-full rounded-2xl border border-border/60 bg-card p-5 shadow-sm sm:p-6"
                 >
                   <div className="mb-3 flex items-center gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">

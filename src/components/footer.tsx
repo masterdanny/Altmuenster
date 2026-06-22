@@ -24,8 +24,8 @@ export function Footer() {
       className="border-t border-border/60 bg-primary text-primary-foreground"
       role="contentinfo"
     >
-      <div className="container-wide section-padding !py-16">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+      <div className="container-wide section-padding !py-10 sm:!py-16">
+        <div className="grid gap-8 sm:gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2.5">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10">
@@ -143,7 +143,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
+        <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-center sm:mt-12 sm:gap-4 sm:pt-8 sm:text-left sm:flex-row">
           <p className="text-xs text-white/50">
             © {new Date().getFullYear()} {OFFICIAL_CONTACT.name}. {t.footer.copyright}
           </p>

@@ -25,8 +25,8 @@ export function WhatsOn() {
           description={t.whatsOn.description}
         />
 
-        <div className="mb-12">
-          <h3 className="mb-5 font-serif text-2xl font-light">
+        <div className="mb-8 sm:mb-12">
+          <h3 className="mb-4 font-serif text-xl font-light sm:mb-5 sm:text-2xl">
             {t.whatsOn.eventsTitle}
           </h3>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -40,7 +40,7 @@ export function WhatsOn() {
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ y: -3 }}
-                    className="flex gap-4 rounded-2xl border border-border/60 bg-card p-5 shadow-sm transition-shadow hover:shadow-md"
+                    className="flex gap-3 rounded-2xl border border-border/60 bg-card p-4 shadow-sm transition-shadow hover:shadow-md sm:gap-4 sm:p-5"
                   >
                     <div className="flex shrink-0 flex-col items-center justify-center rounded-xl bg-primary/5 px-3 py-2 text-center">
                       <span className="text-[10px] font-semibold uppercase tracking-wider text-accent">
@@ -76,10 +76,10 @@ export function WhatsOn() {
         </div>
 
         <div>
-          <h3 className="mb-5 font-serif text-2xl font-light">
+          <h3 className="mb-4 font-serif text-xl font-light sm:mb-5 sm:text-2xl">
             {t.whatsOn.newsTitle}
           </h3>
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid gap-4 sm:gap-5 md:grid-cols-3">
             {OFFICIAL_NEWS.map((item, i) => {
               const localized =
                 t.whatsOn.news[item.id as keyof typeof t.whatsOn.news];
@@ -101,7 +101,7 @@ export function WhatsOn() {
                         sizes="(max-width: 768px) 100vw, 33vw"
                       />
                     </div>
-                    <div className="flex flex-1 flex-col p-5">
+                    <div className="flex flex-1 flex-col p-4 sm:p-5">
                       <p className="text-xs font-medium uppercase tracking-wider text-accent">
                         {localized?.date ?? item.date}
                       </p>
@@ -123,8 +123,8 @@ export function WhatsOn() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
-          <Button variant="outline" asChild>
+        <div className="mt-8 flex flex-col justify-center gap-3 sm:mt-10 sm:flex-row sm:flex-wrap">
+          <Button variant="outline" className="w-full sm:w-auto" asChild>
             <a
               href={OFFICIAL_LINKS.events}
               target="_blank"
@@ -135,7 +135,7 @@ export function WhatsOn() {
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </a>
           </Button>
-          <Button variant="outline" asChild>
+          <Button variant="outline" className="w-full sm:w-auto" asChild>
             <a
               href={OFFICIAL_LINKS.news}
               target="_blank"

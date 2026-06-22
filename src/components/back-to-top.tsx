@@ -24,12 +24,12 @@ export function BackToTop() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 16 }}
           transition={{ duration: 0.25 }}
-          className="fixed bottom-6 right-6 z-50"
+          className="fixed right-4 z-50 bottom-[max(1.25rem,env(safe-area-inset-bottom))] sm:right-6 sm:bottom-6"
         >
           <Button
             variant="gold"
             size="icon"
-            className="h-12 w-12 rounded-full shadow-lg"
+            className="touch-target h-12 w-12 rounded-full shadow-lg"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             aria-label={t.common.backToTop}
           >

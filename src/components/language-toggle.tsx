@@ -32,7 +32,7 @@ export function LanguageToggle({ className, scrolled = false }: LanguageTogglePr
             type="button"
             onClick={() => setLocale(code as Locale)}
             className={cn(
-              "rounded-full px-2.5 py-1 transition-colors",
+              "touch-target rounded-full px-3 py-1.5 transition-colors sm:px-2.5 sm:py-1",
               active
                 ? scrolled
                   ? "bg-primary text-primary-foreground"

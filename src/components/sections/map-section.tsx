@@ -20,7 +20,7 @@ import { cn } from "@/lib/utils";
 function MapFallback() {
   const { t } = useLocale();
   return (
-    <div className="flex h-[380px] items-center justify-center rounded-2xl bg-muted animate-pulse sm:h-[480px]">
+    <div className="flex min-h-[min(55vh,26rem)] items-center justify-center rounded-2xl bg-muted animate-pulse sm:h-[480px] sm:min-h-0">
       <p className="text-muted-foreground">{t.map.loading}</p>
     </div>
   );
@@ -55,7 +55,7 @@ function MarkerListItem({
       type="button"
       onClick={onSelect}
       className={cn(
-        "flex w-full items-start gap-3 rounded-xl border p-3 text-left transition-all",
+        "flex w-full min-h-11 items-start gap-3 rounded-xl border p-3 text-left transition-all active:scale-[0.99]",
         isActive
           ? "border-primary bg-primary/5 shadow-sm"
           : "border-border/60 bg-card hover:border-primary/30 hover:bg-muted/50"
@@ -129,22 +129,25 @@ export function MapSection() {
         />
 
         <SectionReveal>
-          <div className="mb-5 flex flex-wrap items-center justify-between gap-4">
-            <div className="flex flex-wrap gap-2">
+          <div className="mb-4 space-y-3 sm:mb-5 sm:space-y-0">
+            <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 scrollbar-none sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
               {filters.map((f) => (
                 <Button
                   key={f.id}
                   variant={filter === f.id ? "default" : "outline"}
                   size="sm"
                   onClick={() => handleFilterChange(f.id)}
-                  className={cn("rounded-full", filter === f.id && "shadow-md")}
+                  className={cn(
+                    "shrink-0 rounded-full px-4 min-h-10",
+                    filter === f.id && "shadow-md"
+                  )}
                 >
                   {f.label}
                 </Button>
               ))}
             </div>
 
-            <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-muted-foreground">
               {legend.map((item) => (
                 <span key={item.category} className="flex items-center gap-1.5">
                   <span
@@ -158,22 +161,11 @@ export function MapSection() {
             </div>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-[minmax(0,280px)_1fr]">
-            <aside className="flex flex-col gap-2 lg:max-h-[480px] lg:overflow-y-auto lg:pr-1">
-              <p className="mb-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                {t.map.places} ({visibleMarkers.length})
-              </p>
-              {visibleMarkers.map((marker) => (
-                <MarkerListItem
-                  key={marker.id}
-                  marker={marker}
-                  isActive={activeId === marker.id}
-                  onSelect={() => setActiveId(marker.id)}
-                />
-              ))}
-            </aside>
-
-            <div className="relative overflow-hidden rounded-2xl border border-border/60 shadow-lg">
+          <div className="flex flex-col gap-4 lg:grid lg:grid-cols-[minmax(0,280px)_1fr] lg:gap-5">
+            <div className="relative order-1 overflow-hidden rounded-2xl border border-border/60 shadow-lg lg:order-2">
+              <div className="pointer-events-none absolute bottom-3 left-3 right-3 z-[400] rounded-full bg-background/90 px-3 py-2 text-center text-xs text-muted-foreground shadow-sm backdrop-blur-sm sm:hidden">
+                {t.map.hintMobile}
+              </div>
               <div className="pointer-events-none absolute bottom-3 left-3 z-[400] hidden rounded-full bg-background/90 px-3 py-1.5 text-xs text-muted-foreground shadow-sm backdrop-blur-sm sm:block">
                 <Bike className="mr-1 inline h-3.5 w-3.5" aria-hidden="true" />
                 {t.map.hint}
@@ -186,6 +178,20 @@ export function MapSection() {
                 />
               </ClientOnly>
             </div>
+
+            <aside className="order-2 flex max-h-56 flex-col gap-2 overflow-y-auto scrollbar-none sm:max-h-72 lg:order-1 lg:max-h-[480px] lg:pr-1">
+              <p className="sticky top-0 z-10 mb-1 bg-background py-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                {t.map.places} ({visibleMarkers.length})
+              </p>
+              {visibleMarkers.map((marker) => (
+                <MarkerListItem
+                  key={marker.id}
+                  marker={marker}
+                  isActive={activeId === marker.id}
+                  onSelect={() => setActiveId(marker.id)}
+                />
+              ))}
+            </aside>
           </div>
         </SectionReveal>
       </div>

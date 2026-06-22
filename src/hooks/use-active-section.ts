@@ -15,6 +15,10 @@ export function useActiveSection() {
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    const rootMargin = isMobile
+      ? "-25% 0px -55% 0px"
+      : "-40% 0px -50% 0px";
 
     SECTION_IDS.forEach((id) => {
       const element = document.getElementById(id);
@@ -26,7 +30,7 @@ export function useActiveSection() {
             setActiveSection(id);
           }
         },
-        { rootMargin: "-40% 0px -50% 0px", threshold: 0 }
+        { rootMargin, threshold: 0 }
       );
 
       observer.observe(element);

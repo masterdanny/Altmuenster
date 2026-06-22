@@ -29,9 +29,9 @@ function StatCard({
         ref={ref}
         whileHover={{ y: -4, scale: 1.02 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        className="group rounded-2xl border border-border/60 bg-card p-8 text-center shadow-sm transition-shadow hover:shadow-lg"
+        className="group rounded-2xl border border-border/60 bg-card p-5 text-center shadow-sm transition-shadow hover:shadow-lg sm:p-8"
       >
-        <p className="font-serif text-4xl font-light text-primary transition-colors group-hover:text-accent">
+        <p className="font-serif text-3xl font-light text-primary transition-colors group-hover:text-accent sm:text-4xl">
           {stat.prefix}
           {count}
           {stat.suffix}

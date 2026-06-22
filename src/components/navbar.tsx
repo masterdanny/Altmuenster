@@ -57,12 +57,14 @@ export function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className={cn(
-          "fixed top-0 right-0 left-0 z-50 transition-all duration-500",
-          isScrolled ? "glass-nav shadow-sm" : "bg-transparent"
+          "fixed top-0 right-0 left-0 z-50 transition-all duration-500 safe-top",
+          isScrolled
+            ? "glass-nav shadow-sm"
+            : "bg-black/20 backdrop-blur-md lg:bg-transparent lg:backdrop-blur-none"
         )}
       >
         <nav
-          className="container-wide flex h-[4.5rem] items-center justify-between px-4 sm:px-6 lg:px-8"
+          className="container-wide flex h-14 min-h-[3.5rem] items-center justify-between gap-2 px-3 sm:h-[4.5rem] sm:px-6 lg:px-8"
           aria-label={t.nav.main}
         >
           <Link
@@ -73,10 +75,10 @@ export function Navbar() {
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary/20">
               <Mountain className="h-5 w-5 text-primary" aria-hidden="true" />
             </div>
-            <div className="hidden sm:block">
+            <div className="block min-w-0">
               <span
                 className={cn(
-                  "font-serif text-lg font-semibold tracking-tight transition-colors",
+                  "font-serif text-base font-semibold tracking-tight transition-colors sm:text-lg",
                   isScrolled ? "text-foreground" : "text-white"
                 )}
               >
@@ -118,8 +120,8 @@ export function Navbar() {
             ))}
           </div>
 
-          <div className="flex items-center gap-2">
-            <LanguageToggle scrolled={isScrolled} />
+          <div className="flex shrink-0 items-center gap-1 sm:gap-2">
+            <LanguageToggle scrolled={isScrolled} className="hidden xs:flex" />
             <ThemeToggle
               className={cn(
                 !isScrolled && "text-white hover:text-white hover:bg-white/10"
@@ -137,7 +139,10 @@ export function Navbar() {
             <Button
               variant="ghost"
               size="icon"
-              className={cn("lg:hidden", !isScrolled && "text-white hover:text-white hover:bg-white/10")}
+              className={cn(
+                "touch-target lg:hidden",
+                !isScrolled && "text-white hover:text-white hover:bg-white/10"
+              )}
               onClick={() => setMobileOpen(true)}
               aria-label={t.nav.openMenu}
             >
@@ -153,9 +158,9 @@ export function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] bg-background/95 backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-[60] bg-background/95 backdrop-blur-xl safe-top safe-bottom lg:hidden"
           >
-            <div className="flex h-full flex-col p-6">
+            <div className="flex h-full flex-col p-4 pt-5 sm:p-6">
               <div className="flex items-center justify-between">
                 <span className="font-serif text-xl font-semibold">
                   Altmünster
@@ -163,6 +168,7 @@ export function Navbar() {
                 <Button
                   variant="ghost"
                   size="icon"
+                  className="touch-target"
                   onClick={() => setMobileOpen(false)}
                   aria-label={t.nav.closeMenu}
                 >
@@ -184,7 +190,7 @@ export function Navbar() {
                       href={link.href}
                       onClick={() => setMobileOpen(false)}
                       className={cn(
-                        "block rounded-xl px-4 py-3 text-lg font-medium transition-colors hover:bg-muted",
+                        "block min-h-12 rounded-xl px-4 py-3.5 text-lg font-medium transition-colors hover:bg-muted active:bg-muted",
                         isActive(link.href) && "bg-muted text-primary"
                       )}
                     >

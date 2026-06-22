@@ -5,6 +5,7 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useLocale } from "@/context/locale-context";
+import { cn } from "@/lib/utils";
 
 interface ThemeToggleProps {
   className?: string;
@@ -19,7 +20,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
 
   if (!mounted) {
     return (
-      <Button variant="ghost" size="icon" className={className} aria-label={t.theme.toggle}>
+      <Button variant="ghost" size="icon" className={cn("touch-target", className)} aria-label={t.theme.toggle}>
         <Sun className="h-4 w-4" />
       </Button>
     );
@@ -31,7 +32,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
     <Button
       variant="ghost"
       size="icon"
-      className={className}
+      className={cn("touch-target", className)}
       onClick={() => setTheme(nextMode)}
       aria-label={t.theme.switchTo(nextMode)}
     >

@@ -256,7 +256,11 @@ export function InteractiveMap({
       minZoom={11}
       maxZoom={18}
       scrollWheelZoom={false}
-      className={cn("alt-map h-[380px] w-full sm:h-[480px]")}
+      touchZoom
+      dragging
+      className={cn(
+        "alt-map min-h-[min(55vh,26rem)] w-full sm:h-[480px] sm:min-h-0"
+      )}
       aria-label={t.map.ariaLabel}
     >
       <ThemeTileLayer />

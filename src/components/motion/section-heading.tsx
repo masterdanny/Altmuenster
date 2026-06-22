@@ -21,7 +21,7 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "mb-14 max-w-3xl",
+        "mb-10 max-w-3xl sm:mb-14",
         align === "center" && "mx-auto text-center",
         className
       )}
@@ -42,7 +42,7 @@ export function SectionHeading({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="font-serif text-4xl font-light tracking-tight text-foreground sm:text-5xl lg:text-6xl"
+        className="font-serif text-3xl font-light tracking-tight text-foreground sm:text-5xl lg:text-6xl"
       >
         {title}
       </motion.h2>
@@ -62,7 +62,7 @@ export function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-6 text-lg leading-relaxed text-muted-foreground"
+          className="mt-4 text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg"
         >
           {description}
         </motion.p>
