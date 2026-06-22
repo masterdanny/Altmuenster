@@ -20,7 +20,7 @@ import { cn } from "@/lib/utils";
 function MapFallback() {
   const { t } = useLocale();
   return (
-    <div className="flex min-h-[60vh] items-center justify-center rounded-2xl bg-muted animate-pulse sm:h-[480px] sm:min-h-0">
+    <div className="flex min-h-[68dvh] items-center justify-center bg-muted animate-pulse lg:h-[480px] lg:min-h-0 lg:rounded-2xl">
       <p className="text-muted-foreground">{t.map.loading}</p>
     </div>
   );
@@ -132,13 +132,31 @@ export function MapSection() {
     </aside>
   );
 
+  const mapFrame = (
+    <div className="map-bleed relative overflow-hidden lg:rounded-2xl lg:border lg:border-border/60 lg:shadow-lg">
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[400] h-10 bg-gradient-to-b from-black/15 to-transparent lg:hidden" />
+      <div className="pointer-events-none absolute bottom-[max(0.75rem,env(safe-area-inset-bottom))] left-4 right-4 z-[400] text-center lg:hidden">
+        <span className="inline-block rounded-full bg-black/40 px-3 py-1.5 text-xs text-white/95 backdrop-blur-sm">
+          {t.map.hintMobile}
+        </span>
+      </div>
+      <div className="pointer-events-none absolute bottom-3 left-3 z-[400] hidden rounded-full bg-background/90 px-3 py-1.5 text-xs text-muted-foreground shadow-sm backdrop-blur-sm lg:block">
+        <Bike className="mr-1 inline h-3.5 w-3.5" aria-hidden="true" />
+        {t.map.hint}
+      </div>
+      <ClientOnly fallback={<MapFallback />}>
+        <InteractiveMap
+          filter={filter}
+          activeId={activeId}
+          onActiveChange={setActiveId}
+        />
+      </ClientOnly>
+    </div>
+  );
+
   return (
-    <section
-      id="map"
-      className="section-padding bg-background"
-      aria-labelledby="map-heading"
-    >
-      <div className="container-wide">
+    <section id="map" className="bg-background" aria-labelledby="map-heading">
+      <div className="container-wide section-padding pb-5 lg:pb-0">
         <SectionHeading
           eyebrow={t.map.eyebrow}
           title={t.map.title}
@@ -148,8 +166,8 @@ export function MapSection() {
         />
 
         <SectionReveal>
-          <div className="mb-4 lg:mb-5">
-            <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 scrollbar-none lg:mx-0 lg:flex-wrap lg:overflow-visible lg:px-0">
+          <div className="mb-0 lg:mb-5">
+            <div className="-mx-1 flex gap-2 overflow-x-auto pb-1 scrollbar-none lg:mx-0 lg:flex-wrap lg:overflow-visible">
               {filters.map((f) => (
                 <Button
                   key={f.id}
@@ -157,8 +175,8 @@ export function MapSection() {
                   size="sm"
                   onClick={() => handleFilterChange(f.id)}
                   className={cn(
-                    "shrink-0 rounded-full px-4 min-h-10",
-                    filter === f.id && "shadow-md"
+                    "shrink-0 rounded-full px-4 min-h-10 shadow-sm lg:shadow-none",
+                    filter === f.id && "lg:shadow-md"
                   )}
                 >
                   {f.label}
@@ -179,29 +197,17 @@ export function MapSection() {
               ))}
             </div>
           </div>
+        </SectionReveal>
+      </div>
 
-          <div className="flex flex-col gap-4 lg:grid lg:grid-cols-[minmax(0,280px)_1fr] lg:gap-5">
-            <div className="relative overflow-hidden rounded-2xl border border-border/60 shadow-lg">
-              <div className="pointer-events-none absolute bottom-3 left-3 right-3 z-[400] rounded-full bg-background/90 px-3 py-2 text-center text-xs text-muted-foreground shadow-sm backdrop-blur-sm lg:hidden">
-                {t.map.hintMobile}
-              </div>
-              <div className="pointer-events-none absolute bottom-3 left-3 z-[400] hidden rounded-full bg-background/90 px-3 py-1.5 text-xs text-muted-foreground shadow-sm backdrop-blur-sm lg:block">
-                <Bike className="mr-1 inline h-3.5 w-3.5" aria-hidden="true" />
-                {t.map.hint}
-              </div>
-              <ClientOnly fallback={<MapFallback />}>
-                <InteractiveMap
-                  filter={filter}
-                  activeId={activeId}
-                  onActiveChange={setActiveId}
-                />
-              </ClientOnly>
-            </div>
-
-            <div className="hidden lg:block">{placeList}</div>
+      <SectionReveal>
+        <div className="lg:container-wide lg:section-padding lg:!pt-0">
+          <div className="grid gap-4 lg:grid-cols-[minmax(0,280px)_1fr] lg:gap-5">
+            <div className="order-2 hidden lg:order-1 lg:block">{placeList}</div>
+            <div className="order-1 lg:order-2">{mapFrame}</div>
           </div>
 
-          <div className="mt-4 lg:hidden">
+          <div className="container-wide mt-5 px-5 pb-16 lg:hidden">
             {showPlaces && (
               <div className="mb-4 max-h-64 overflow-y-auto scrollbar-none">
                 {placeList}
@@ -211,7 +217,7 @@ export function MapSection() {
               type="button"
               onClick={() => setShowPlaces((prev) => !prev)}
               aria-expanded={showPlaces}
-              className="mx-auto flex min-h-11 w-full items-center justify-center gap-1.5 rounded-full border border-border/60 px-5 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground active:bg-muted/50"
+              className="mx-auto flex min-h-11 w-full max-w-xs items-center justify-center gap-1.5 rounded-full border border-border/60 px-5 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground active:bg-muted/50"
             >
               {showPlaces ? t.map.hidePlaces : t.map.showPlaces}
               <ChevronDown
@@ -223,8 +229,8 @@ export function MapSection() {
               />
             </button>
           </div>
-        </SectionReveal>
-      </div>
+        </div>
+      </SectionReveal>
     </section>
   );
 }

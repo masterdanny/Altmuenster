@@ -142,7 +142,7 @@ function MapZoomControls() {
   };
 
   return (
-    <div className="leaflet-bottom leaflet-right !bottom-3 !right-3 z-[400]">
+    <div className="leaflet-bottom leaflet-right z-[400] !bottom-3 !right-3 max-lg:!bottom-[max(0.75rem,env(safe-area-inset-bottom))] max-lg:!right-3">
       <div className="flex flex-col gap-1.5">
         <Button
           type="button"
@@ -259,7 +259,7 @@ export function InteractiveMap({
       touchZoom
       dragging
       className={cn(
-        "alt-map min-h-[60vh] w-full lg:h-[480px] lg:min-h-0"
+        "alt-map min-h-[68dvh] w-full lg:h-[480px] lg:min-h-0"
       )}
       aria-label={t.map.ariaLabel}
     >
