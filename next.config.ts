@@ -4,12 +4,17 @@ const isGithubPages = process.env.GITHUB_PAGES === "true";
 // ASCII repo slug for GitHub Pages URLs only — not used in visible site copy
 const repoName = "Altmuenster";
 
+const basePath = isGithubPages ? `/${repoName}` : "";
+
 const nextConfig: NextConfig = {
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   ...(isGithubPages
     ? {
         output: "export",
-        basePath: `/${repoName}`,
-        assetPrefix: `/${repoName}/`,
+        basePath,
+        assetPrefix: `${basePath}/`,
         trailingSlash: true,
       }
     : {}),

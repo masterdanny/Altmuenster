@@ -11,6 +11,12 @@ if (!existsSync(indexPath)) {
   process.exit(1);
 }
 
+const heroPath = join(outDir, "images", "hero.jpg");
+if (!existsSync(heroPath)) {
+  console.error("Missing out/images/hero.jpg — hero image was not exported.");
+  process.exit(1);
+}
+
 copyFileSync(indexPath, fallbackPath);
 writeFileSync(noJekyllPath, "");
 console.log("Prepared GitHub Pages output (404.html + .nojekyll).");

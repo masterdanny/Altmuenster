@@ -102,7 +102,7 @@ export const GOOD_TO_KNOW = [
 ] as const;
 
 /** Local hero asset — identical file served to every viewport */
-export const HERO_IMAGE = "/images/hero.jpg";
+export const HERO_IMAGE = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/hero.jpg`;
 export const HERO_IMAGE_POSITION = "50% 42%";
 
 export const HERO_FACTS = [

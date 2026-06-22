@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
@@ -34,15 +33,14 @@ export function Hero() {
         className="absolute inset-0"
         aria-hidden="true"
       >
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src={HERO_IMAGE}
           alt=""
-          fill
-          priority
-          unoptimized
-          sizes="100vw"
+          fetchPriority="high"
+          decoding="async"
           draggable={false}
-          className="pointer-events-none select-none"
+          className="pointer-events-none absolute inset-0 h-full w-full select-none"
           style={{
             objectFit: "cover",
             objectPosition: HERO_IMAGE_POSITION,
