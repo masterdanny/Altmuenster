@@ -10,7 +10,7 @@
     "dev:clean": "rm -rf .next && next dev -p 3456",
     "build": "next build",
     "build:pages": "GITHUB_PAGES=true next build",
-    "deploy:pages": "npm run build:pages && npx gh-pages -d out -t",
+    "deploy:pages": "npm run build:pages && npx gh-pages -d out -t -r https://github.com/masterdanny/Altmuenster.git",
     "start": "next start -p 3456",
     "lint": "next lint"
   },

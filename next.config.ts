@@ -1,8 +1,7 @@
 import type { NextConfig } from "next";
 
 const isGithubPages = process.env.GITHUB_PAGES === "true";
-// Match the GitHub repo name exactly. Rename repo to "Altmuenster" on GitHub, then update this.
-const repoName = "Altm-nster";
+const repoName = "Altmuenster";
 
 const nextConfig: NextConfig = {
   ...(isGithubPages

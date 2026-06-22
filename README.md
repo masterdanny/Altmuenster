@@ -42,6 +42,6 @@ Then open **http://localhost:3456**.
 
 ## GitHub Pages
 
-Live site: **https://masterdanny.github.io/Altm-nster/** (rename the GitHub repo to `Altmuenster` for a cleaner URL)
+Live site: **https://masterdanny.github.io/Altmuenster/**
 
 Pushes to `main` deploy automatically via GitHub Actions. In the repo settings, set **Pages → Build and deployment → Source** to **GitHub Actions**.
