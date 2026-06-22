@@ -9,6 +9,7 @@ import { useMediaQuery } from "@/hooks/use-media-query";
 import {
   HERO_IMAGE,
   HERO_IMAGE_MOBILE,
+  HERO_IMAGE_MOBILE_POSITION,
   HERO_IMAGE_POSITION,
 } from "@/lib/data";
 
@@ -41,6 +42,7 @@ export function Hero() {
               src={HERO_IMAGE_MOBILE}
               alt=""
               className="absolute inset-0 h-full w-full scale-110 object-cover opacity-50 blur-3xl"
+              style={{ objectPosition: HERO_IMAGE_MOBILE_POSITION }}
             />
           </div>
 
@@ -52,7 +54,8 @@ export function Hero() {
               fetchPriority="high"
               decoding="async"
               draggable={false}
-              className="h-full w-full object-cover object-center"
+              className="h-full w-full object-cover"
+              style={{ objectPosition: HERO_IMAGE_MOBILE_POSITION }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-black/15" />
           </div>
@@ -220,7 +223,8 @@ export function Hero() {
         </motion.div>
       </motion.a>
 
-      <span className="sr-only">{t.hero.imageAlt}</span>
+      <span className="sr-only md:hidden">{t.hero.imageAlt}</span>
+      <span className="sr-only hidden md:inline">{t.hero.imageAltDesktop}</span>
     </section>
   );
 }

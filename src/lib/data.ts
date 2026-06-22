@@ -108,8 +108,9 @@ const asset = (path: string) =>
 export const HERO_IMAGE = asset("/images/hero.jpg");
 export const HERO_IMAGE_POSITION = "50% 42%";
 
-/** Portrait crop for phones — same scene, framed for tall screens */
+/** Official municipality aerial (Neukirchen/Altmünster) — portrait-friendly for phones */
 export const HERO_IMAGE_MOBILE = asset("/images/hero-mobile.jpg");
+export const HERO_IMAGE_MOBILE_POSITION = "50% 45%";
 
 export const HERO_FACTS = [
   { value: "191 m", label: "Austria's deepest lake" },
