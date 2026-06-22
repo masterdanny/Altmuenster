@@ -6,7 +6,11 @@ import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { useLocale } from "@/context/locale-context";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import { HERO_IMAGE, HERO_IMAGE_POSITION } from "@/lib/data";
+import {
+  HERO_IMAGE,
+  HERO_IMAGE_MOBILE,
+  HERO_IMAGE_POSITION,
+} from "@/lib/data";
 
 export function Hero() {
   const { t } = useLocale();
@@ -25,12 +29,90 @@ export function Hero() {
     <section
       id="hero"
       ref={ref}
-      className="relative min-h-[100dvh] overflow-hidden md:flex md:min-h-[100dvh] md:items-center md:justify-center md:pt-[calc(4.5rem+env(safe-area-inset-top,0px))]"
+      className="relative overflow-hidden md:flex md:min-h-[100dvh] md:items-center md:justify-center md:pt-[calc(4.5rem+env(safe-area-inset-top,0px))]"
       aria-label="Hero"
     >
+      {/* Mobile: portrait frame — no full-screen landscape crop */}
+      <div className="md:hidden">
+        <div className="hero-mobile-bleed relative">
+          <div className="hero-mobile-ambient" aria-hidden="true">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={HERO_IMAGE_MOBILE}
+              alt=""
+              className="absolute inset-0 h-full w-full scale-110 object-cover opacity-50 blur-3xl"
+            />
+          </div>
+
+          <div className="hero-mobile-photo relative mx-auto overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={HERO_IMAGE_MOBILE}
+              alt=""
+              fetchPriority="high"
+              decoding="async"
+              draggable={false}
+              className="h-full w-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-black/15" />
+          </div>
+        </div>
+
+        <div className="px-6 pb-[max(2rem,env(safe-area-inset-bottom))] pt-7">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-accent"
+          >
+            {t.hero.region}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, delay: 0.3 }}
+          >
+            <h1 className="mt-2 font-serif text-[2.35rem] font-light leading-[1.05] tracking-tight text-foreground">
+              Altmünster
+            </h1>
+            <p className="mt-1 font-serif text-xl italic text-muted-foreground">
+              am Traunsee
+            </p>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.45 }}
+            className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground"
+          >
+            {t.hero.tagline}
+          </motion.p>
+
+          <motion.a
+            href="#welcome"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.9, duration: 0.6 }}
+            className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-primary"
+            aria-label={t.hero.scrollDown}
+          >
+            <span>{t.hero.explore}</span>
+            <motion.span
+              animate={{ y: [0, 4, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <ChevronDown className="h-4 w-4" strokeWidth={2} />
+            </motion.span>
+          </motion.a>
+        </div>
+      </div>
+
+      {/* Desktop: full-bleed landscape hero */}
       <motion.div
         style={enableParallax ? { y } : undefined}
-        className="absolute inset-0"
+        className="absolute inset-0 hidden md:block"
         aria-hidden="true"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -49,39 +131,6 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/25 to-black/65" />
       </motion.div>
 
-      {/* Mobile: image-first, title only at the bottom */}
-      <div className="relative z-10 flex min-h-[100dvh] flex-col justify-end px-6 pb-[max(3rem,env(safe-area-inset-bottom))] md:hidden">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-        >
-          <h1 className="font-serif text-[2.5rem] font-light leading-none tracking-tight text-white">
-            Altmünster
-          </h1>
-          <p className="mt-1.5 font-serif text-xl italic text-white/85">
-            am Traunsee
-          </p>
-        </motion.div>
-
-        <motion.a
-          href="#welcome"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="mt-8 flex justify-center text-white/45 transition-colors active:text-white"
-          aria-label={t.hero.scrollDown}
-        >
-          <motion.div
-            animate={{ y: [0, 6, 0] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <ChevronDown className="h-6 w-6" strokeWidth={1.5} />
-          </motion.div>
-        </motion.a>
-      </div>
-
-      {/* Desktop: full hero content */}
       <motion.div
         style={enableParallax ? { opacity } : undefined}
         className="relative z-10 hidden container-wide px-4 pb-16 text-center md:block sm:px-6 sm:pb-8 lg:px-8"

@@ -11,10 +11,12 @@ if (!existsSync(indexPath)) {
   process.exit(1);
 }
 
-const heroPath = join(outDir, "images", "hero.jpg");
-if (!existsSync(heroPath)) {
-  console.error("Missing out/images/hero.jpg — hero image was not exported.");
-  process.exit(1);
+for (const file of ["hero.jpg", "hero-mobile.jpg"]) {
+  const heroPath = join(outDir, "images", file);
+  if (!existsSync(heroPath)) {
+    console.error(`Missing out/images/${file} — hero image was not exported.`);
+    process.exit(1);
+  }
 }
 
 copyFileSync(indexPath, fallbackPath);

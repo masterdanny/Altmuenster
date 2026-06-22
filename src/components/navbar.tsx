@@ -75,7 +75,7 @@ export function Navbar() {
             href="#hero"
             className={cn(
               "group flex items-center gap-2.5",
-              onHero && "max-md:invisible max-md:w-0 max-md:overflow-hidden"
+              onHero && "max-md:opacity-100"
             )}
             aria-label={t.common.homeAria}
           >

@@ -101,9 +101,15 @@ export const GOOD_TO_KNOW = [
   },
 ] as const;
 
-/** Local hero asset — identical file served to every viewport */
-export const HERO_IMAGE = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/hero.jpg`;
+const asset = (path: string) =>
+  `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${path}`;
+
+/** Landscape hero for tablet/desktop */
+export const HERO_IMAGE = asset("/images/hero.jpg");
 export const HERO_IMAGE_POSITION = "50% 42%";
+
+/** Portrait crop for phones — same scene, framed for tall screens */
+export const HERO_IMAGE_MOBILE = asset("/images/hero-mobile.jpg");
 
 export const HERO_FACTS = [
   { value: "191 m", label: "Austria's deepest lake" },

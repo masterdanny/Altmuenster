@@ -191,6 +191,42 @@
   .gold-line {
     @apply h-px w-16 bg-accent mx-auto;
   }
+
+  /* Mobile hero: portrait frame instead of cropping landscape across 100dvh */
+  .hero-mobile-bleed {
+    position: relative;
+    left: 50%;
+    width: 100vw;
+    max-width: 100vw;
+    transform: translateX(-50%);
+    padding-top: calc(3.5rem + env(safe-area-inset-top, 0px));
+  }
+
+  .hero-mobile-ambient {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .hero-mobile-photo {
+    width: 100%;
+    max-height: min(62dvh, 34rem);
+    aspect-ratio: 3 / 4;
+  }
+
+  /* Extra-tall phones (e.g. iPhone Pro Max) — shorter photo, more content visible */
+  @media (max-width: 767px) and (min-aspect-ratio: 9/18) {
+    .hero-mobile-photo {
+      max-height: min(54dvh, 28rem);
+      aspect-ratio: 4 / 5;
+    }
+  }
+
+  @media (max-width: 767px) and (min-aspect-ratio: 9/20) {
+    .hero-mobile-photo {
+      max-height: min(48dvh, 24rem);
+    }
+  }
 }
 
 /* Leaflet customizations */
